@@ -1,0 +1,12 @@
+{
+  "run_list": [
+    "packer::disable_uac",
+    "packer::disable_onedrive",
+    "packer::disable_restore",
+    "packer::disable_hibernation",
+    "packer::disable_windows_update",
+    "packer::remove_defender",
+    "workstation::features",
+    "workstation::ui"
+  ]
+}
