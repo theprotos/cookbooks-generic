@@ -1,0 +1,61 @@
+{
+  "name": "win-power-physical",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "execute": [
+      {
+        "command": "powercfg -SETACTIVE SCHEME_MIN",
+        "description": "POWER Settings {High Performance}"
+      },
+      {
+        "command": "powercfg.exe /hibernate on",
+        "description": "Turn on Hibernation"
+      },{
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP STANDBYIDLE 0",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Sleep after}{0/0}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP STANDBYIDLE 0",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Sleep after}{0/0}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HYBRIDSLEEP 000",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Allow hybrid sleep}{off}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HYBRIDSLEEP 000",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Allow hybrid sleep}{off}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOIDLE 600",
+        "description": "POWER DC Settings {Balanced}{Display}{Turn off display after}{600}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOIDLE 900",
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off display after}{900}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO ADAPTBRIGHT 0",
+        "description": "POWER DC Settings {Balanced}{Display}{Enable adaptive brightness}{off}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO ADAPTBRIGHT 0",
+        "description": "POWER AC Settings {Balanced}{Display}{Enable adaptive brightness}{off}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 600",
+        "description": "POWER DC Settings {Balanced}{Hard disk}{Turn off hard disk after}{600}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
+        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}

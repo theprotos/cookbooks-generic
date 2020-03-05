@@ -1,0 +1,11 @@
+{
+  "name": "linux-minimal",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {},
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::packages]"
+  ]
+}

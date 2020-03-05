@@ -1,0 +1,49 @@
+{
+  "name": "win-disable-telemetry",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "registry": [
+      {
+        "description": "Disable remote assistance access",
+        "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance",
+        "name": "fAllowToGetHelp",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disable remote assistance access",
+        "path": "HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance",
+        "name": "fAllowFullControl",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disable telemetry 1",
+        "path": "HKLM\\Software\\Policies\\Microsoft\\Windows\\DataCollection",
+        "name": "AllowTelemetry",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disable telemetry 2",
+        "path": "HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Metadata",
+        "name": "PreventDeviceMetadataFromNetwork",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Disable telemetry 3",
+        "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\MRT",
+        "name": "DontOfferThroughWUAU",
+        "type": "dword",
+        "data": "1"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::registry]"
+  ]
+}

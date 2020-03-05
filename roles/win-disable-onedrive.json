@@ -1,0 +1,35 @@
+{
+  "name": "win-disable-onedrive",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "registry": [
+      {
+        "description": "Disabling OneDrive 1",
+        "path": "HKLM\\Software\\Policies\\Microsoft\\Windows\\OneDrive",
+        "name": "DisableFileSyncNGSC",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Disabling OneDrive 2",
+        "path": "HKLM\\Software\\Policies\\Microsoft\\Windows\\OneDrive",
+        "name": "DisableFileSync",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Disabling OneDrive 3",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run",
+        "name": "OneDrive",
+        "type": "binary",
+        "data": "0300000021B9DEB396D7D001"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::registry]"
+  ]
+}

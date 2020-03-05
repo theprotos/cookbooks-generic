@@ -1,0 +1,161 @@
+{
+  "name": "win-ui-tweaks",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "registry": [
+      {
+        "description": "Hide Security Center systray icon",
+        "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender Security Center\\Systray",
+        "name": "HideSystray",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Add UA language",
+        "path": "HKEY_CURRENT_USER\\Keyboard Layout\\Preload",
+        "name": "2",
+        "type": "string",
+        "data": "00000419"
+      },
+      {
+        "description": "Add RU language",
+        "path": "HKEY_CURRENT_USER\\Keyboard Layout\\Preload",
+        "name": "3",
+        "type": "string",
+        "data": "00000422"
+      },
+      {
+        "description": "Locale language",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Nls\\Locale",
+        "name": "(Default)",
+        "type": "string",
+        "data": "00000419"
+      },
+      {
+        "description": "Show file extentions",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "name": "HideFileExt",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Show hidden files",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "name": "Hidden",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Show system files",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "name": "ShowSuperHidden",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Change time format 1",
+        "path": "HKEY_CURRENT_USER\\Control Panel\\International",
+        "name": "sShortDate",
+        "type": "string",
+        "data": "dd.MM.yyyy"
+      },
+      {
+        "description": "Change time format 2",
+        "path": "HKEY_CURRENT_USER\\Control Panel\\International",
+        "name": "iFirstDayOfWeek",
+        "type": "string",
+        "data": "0"
+      },
+      {
+        "description": "Change time format 3",
+        "path": "HKEY_CURRENT_USER\\Control Panel\\International",
+        "name": "iFirstWeekOfYear",
+        "type": "string",
+        "data": "0"
+      },
+      {
+        "description": "Change time format 4",
+        "path": "HKEY_CURRENT_USER\\Control Panel\\International",
+        "name": "sShortTime",
+        "type": "string",
+        "data": "H:mm"
+      },
+      {
+        "description": "Change time format 5",
+        "path": "HKEY_CURRENT_USER\\Control Panel\\International",
+        "name": "sDate",
+        "type": "string",
+        "data": "."
+      },
+      {
+        "description": "SET UNC path in cmd",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Command Processor",
+        "name": "DisableUNCChecks",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Always show icons and notifications on the taskbar",
+        "path": "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
+        "name": "EnableAutoTray",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Performance: Disable visual style",
+        "path": "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\VisualEffects",
+        "name": "VisualFXSetting",
+        "type": "dword",
+        "data": "00000002"
+      },
+      {
+        "description": "Disable touchPad Driver Diagnostic Pop-up",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\services\\SynTP\\Parameters\\Debug",
+        "name": "DumpKernel",
+        "type": "dword",
+        "data": "00000000"
+      },
+      {
+        "description": "Enable Login Screen Background Image",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\System",
+        "name": "DisableLogonBackgroundImage",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disable swype Screen Background Image",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows\\Personalization",
+        "name": "NoLockScreen",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Disable Windows Game Recording",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+        "name": "AllowgameDVR",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disable Windows Game Recording",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+        "name": "AppCaptureEnabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disable Windows Game Recording",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
+        "name": "HistoricalCaptureEnabled",
+        "type": "dword",
+        "data": "0"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::registry]"
+  ]
+}

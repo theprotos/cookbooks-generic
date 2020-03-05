@@ -1,0 +1,26 @@
+{
+  "name": "win-docker",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "execute": [
+      {
+        "command": "Install-PackageProvider -Name NuGet -Force",
+        "description": "Install Nuget"
+      },
+      {
+        "command": "Install-Module -Name DockerMsftProvider -Repository PSGallery -Force",
+        "description": "Add Docker provider"
+      },
+      {
+        "command": "Install-Package -Name docker -ProviderName DockerMsftProvider -Force",
+        "description": "Install docker"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}

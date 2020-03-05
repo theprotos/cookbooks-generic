@@ -1,0 +1,28 @@
+{
+  "name": "win-update",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "registry": [
+      {
+        "description": "Notify before installing updates",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+        "name": "AUOptions",
+        "type": "dword",
+        "data": "3"
+      },
+      {
+        "description": "Allow updates for other Microsoft products installed",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+        "name": "AllowMUUpdateService",
+        "type": "dword",
+        "data": "1"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::registry]"
+  ]
+}

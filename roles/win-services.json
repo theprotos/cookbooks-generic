@@ -1,0 +1,58 @@
+{
+  "name": "win-services",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "service": [
+      {
+        "name": "lfsvc",
+        "startup_type": "manual"
+      },
+      {
+        "name": "CscService",
+        "startup_type": "manual"
+      },
+      {
+        "name": "DiagTrack",
+        "startup_type": "manual"
+      },
+      {
+        "name": "SCardSvr",
+        "startup_type": "manual"
+      },
+      {
+        "name": "DPS",
+        "startup_type": "manual"
+      },
+      {
+        "name": "Fax",
+        "startup_type": "manual"
+      },
+      {
+        "name": "XblAuthManager",
+        "startup_type": "manual"
+      },
+      {
+        "name": "XblGameSave",
+        "startup_type": "manual"
+      },
+      {
+        "name": "XboxNetApiSvc",
+        "startup_type": "manual"
+      },
+      {
+        "name": "bthserv",
+        "startup_type": "manual"
+      },
+      {
+        "name": "WMPNetworkSvc",
+        "startup_type": "manual"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::services]"
+  ]
+}

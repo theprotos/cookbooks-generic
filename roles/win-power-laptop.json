@@ -1,0 +1,110 @@
+{
+  "name": "win-power-laptop",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "execute": [
+      {
+        "command": "powercfg -SETACTIVE SCHEME_BALANCED",
+        "description": "POWER Settings {Balanced}"
+      },
+      {
+        "command": "powercfg /hibernate on",
+        "description": "POWER Settings {Hibernate}{on}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP STANDBYIDLE 0",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Sleep after}{0}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP STANDBYIDLE 0",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Sleep after}{0}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HYBRIDSLEEP 000",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Allow hybrid sleep}{off}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HYBRIDSLEEP 000",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Allow hybrid sleep}{off}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 3000",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Hibernate after}{3000}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 5000",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Hibernate after}{5000}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_BUTTONS LIDACTION 002",
+        "description": "POWER DC Settings {Balanced}{Power buttons and lid}{Lid close action}{Hibernate}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_BUTTONS LIDACTION 000",
+        "description": "POWER AC Settings {Balanced}{Power buttons and lid}{Lid close action}{Nothing}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_BUTTONS PBUTTONACTION 002",
+        "description": "POWER DC Settings {Balanced}{Power buttons and lid}{Power button action}{Hibernate}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_BUTTONS PBUTTONACTION 002",
+        "description": "POWER AC Settings {Balanced}{Power buttons and lid}{Power button action}{Hibernate}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_BUTTONS SBUTTONACTION 002",
+        "description": "POWER DC Settings {Balanced}{Power buttons and lid}{Sleep button action}{Hibernate}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_BUTTONS SBUTTONACTION 002",
+        "description": "POWER AC Settings {Balanced}{Power buttons and lid}{Sleep button action}{Hibernate}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOIDLE 600",
+        "description": "POWER DC Settings {Balanced}{Display}{Turn off display after}{600}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOIDLE 900",
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off display after}{900}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 90",
+        "description": "POWER DC Settings {Balanced}{Display}{Display brightness}{80}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 90",
+        "description": "POWER AC Settings {Balanced}{Display}{Display brightness}{80}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO f1fbfde2-a960-4165-9f88-50667911ce96 80",
+        "description": "POWER DC Settings {Balanced}{Display}{Dimmed display brightness}{75}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO f1fbfde2-a960-4165-9f88-50667911ce96 80",
+        "description": "POWER AC Settings {Balanced}{Display}{Dimmed display brightness}{75}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO ADAPTBRIGHT 0",
+        "description": "POWER DC Settings {Balanced}{Display}{Enable adaptive brightness}{off}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO ADAPTBRIGHT 0",
+        "description": "POWER AC Settings {Balanced}{Display}{Enable adaptive brightness}{off}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 600",
+        "description": "POWER DC Settings {Balanced}{Hard disk}{Turn off hard disk after}{600}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
+        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}

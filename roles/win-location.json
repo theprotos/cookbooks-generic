@@ -1,0 +1,56 @@
+{
+  "name": "win-location",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "registry": [
+      {
+        "description": "Disable location services 1",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeviceAccess\\Global\\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}",
+        "name": "Value",
+        "type": "string",
+        "data": "Deny"
+      },
+      {
+        "description": "Disable location services 2",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DeviceAccess\\Global\\{E6AD100E-5F4E-44CD-BE0F-2265D88D14F5}",
+        "name": "Value",
+        "type": "string",
+        "data": "Deny"
+      },
+      {
+        "description": "Disable location services 3",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Sensor\\Permissions\\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}",
+        "name": "SensorPermissionState",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Remove Advertising ID",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo",
+        "name": "Enabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling search history",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "HistoryViewEnabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling search history device",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "DeviceHistoryEnabled",
+        "type": "dword",
+        "data": "0"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::registry]"
+  ]
+}

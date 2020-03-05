@@ -1,0 +1,56 @@
+{
+  "name": "win-cortana",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "registry": [
+      {
+        "description": "Disabling Cortana in Windows search",
+        "path": "HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Search",
+        "name": "AllowCortana",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling Cortana",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "CortanaEnabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling search box on taskbar",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "SearchboxTaskbarMode",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling bing search",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "BingSearchEnabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling search history",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "HistoryViewEnabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Disabling search history device",
+        "path": "HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "DeviceHistoryEnabled",
+        "type": "dword",
+        "data": "0"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::registry]"
+  ]
+}

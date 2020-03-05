@@ -1,0 +1,13 @@
+{
+  "name": "win-kms",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "package": []
+  },
+  "override_attributes": { },
+  "run_list": [
+    "recipe[kms::kms]"
+  ]
+}

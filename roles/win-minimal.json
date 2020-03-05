@@ -1,0 +1,17 @@
+{
+  "name": "win-minimal",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "package": []
+  },
+  "override_attributes": { },
+  "run_list": [
+    "recipe[windows::exec]",
+    "recipe[windows::features]",
+    "recipe[windows::ui]",
+    "recipe[windows::services]",
+    "recipe[windows::packages]"
+  ]
+}

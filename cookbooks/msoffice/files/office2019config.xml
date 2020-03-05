@@ -1,0 +1,38 @@
+<Configuration>
+<Add OfficeClientEdition="64" Channel="Monthly">
+    <Product ID="Proplus2019Retail">
+      <Language ID="en-US" />
+      <Language ID="ru-RU" />
+      <Language ID="cs-CZ" />
+      <Language ID="uk-UA" />
+      <ExcludeApp ID="Access" />
+      <ExcludeApp ID="Publisher" />
+      <ExcludeApp ID="Groove" />
+      <ExcludeApp ID="OneDrive" />
+    </Product>
+    <Product ID="ProjectPro2019Retail">
+      <Language ID="en-US" />
+      <Language ID="ru-RU" />
+      <Language ID="cs-CZ" />
+      <Language ID="uk-UA" />
+      <ExcludeApp ID="OneDrive" />
+    </Product>
+    <Product ID="VisioPro2019Retail">
+      <Language ID="en-US" />
+      <Language ID="ru-RU" />
+      <Language ID="cs-CZ" />
+      <Language ID="uk-UA" />
+      <ExcludeApp ID="OneDrive" />
+    </Product>
+</Add>
+<Display Level="Full" AcceptEULA="TRUE" />
+<Updates Enabled="TRUE" Channel="Monthly" />
+</Configuration>
+<!--  OInstallSetting Branch=1  -->
+<!--  OInstallSetting Office=0  -->
+<!--  OInstallSetting Arch=0  -->
+<!--  OInstallSetting Redact=2  -->
+<!--  OInstallSetting Product=1  -->
+<!--  OInstallSetting OnlineKMS=0  -->
+<!--  OInstallSetting PATH=  -->
+<!--  OInstallSetting Lang0=1  -->

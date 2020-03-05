@@ -1,0 +1,65 @@
+{
+  "name": "linux-minimal",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "package": [
+      {
+        "name": "epel-release"
+      },
+      {
+        "name": "yum-utils"
+      },
+      {
+        "name": "jq"
+      },
+      {
+        "name": "net-tools"
+      },
+      {
+        "name": "unzip"
+      },
+      {
+        "name": "tar"
+      },
+      {
+        "name": "curl"
+      },
+      {
+        "name": "kernel-devel"
+      },
+      {
+        "name": "awscli"
+      },
+      {
+        "name": "sshuttle"
+      },
+      {
+        "name": "htop"
+      },
+      {
+        "name": "git"
+      },
+      {
+        "name": "mc"
+      },
+      {
+        "name": "nano"
+      },
+      {
+        "name": "ansible"
+      },
+      {
+        "name": "golang"
+      },
+      {
+        "name": "bash-completion"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::packages]"
+  ]
+}

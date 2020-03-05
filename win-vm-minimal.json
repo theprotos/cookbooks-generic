@@ -1,0 +1,11 @@
+{
+  "run_list": [
+    "role[win-power-vm]",
+    "role[win-cortana]",
+    "role[win-disable-onedrive]",
+    "role[win-update]",
+    "role[win-ui-tweaks]",
+    "role[win-minimal]",
+    "role[win-network]"
+  ]
+}

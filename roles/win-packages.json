@@ -1,0 +1,182 @@
+{
+  "name": "win-packages",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "package": [
+      {
+        "name": "googlechrome"
+      },
+      {
+        "name": "firefox"
+      },
+      {
+        "name": "tor-browser"
+      },
+      {
+        "name": "python3"
+      },
+      {
+        "name": "golang"
+      },
+      {
+        "name": "ruby"
+      },
+      {
+        "name": "pip"
+      },
+      {
+        "name": "curl"
+      },
+      {
+        "name": "openjdk"
+      },
+      {
+        "name": "maven"
+      },
+      {
+        "name": "gradle"
+      },
+      {
+        "name": "nodejs"
+      },
+      {
+        "name": "sysinternals"
+      },
+      {
+        "name": "jetbrainstoolbox"
+      },
+      {
+        "name": "winbox"
+      },
+      {
+        "name": "visualstudiocode"
+      },
+      {
+        "name": "insted"
+      },
+      {
+        "name": "wireshark"
+      },
+      {
+        "name": "fiddler"
+      },
+      {
+        "name": "ilspy"
+      },
+      {
+        "name": "cmder"
+      },
+      {
+        "name": "nmap"
+      },
+      {
+        "name": "unetbootin"
+      },
+      {
+        "name": "veracrypt"
+      },
+      {
+        "name": "rufus"
+      },
+      {
+        "name": "vagrant"
+      },
+      {
+        "name": "packer"
+      },
+      {
+        "name": "terraform"
+      },
+      {
+        "name": "tflint"
+      },
+      {
+        "name": "aws-vault"
+      },
+      {
+        "name": "awscli"
+      },
+      {
+        "name": "azure-cli"
+      },
+      {
+        "name": "gcloudsdk"
+      },
+      {
+        "name": "vault"
+      },
+      {
+        "name": "minikube"
+      },
+      {
+        "name": "kubernetes-helm"
+      },
+      {
+        "name": "kubernetes-kompose"
+      },
+      {
+        "name": "bleachbit"
+      },
+      {
+        "name": "crystaldiskmark"
+      },
+      {
+        "name": "windirstat"
+      },
+      {
+        "name": "7zip.install"
+      },
+      {
+        "name": "cpu-z"
+      },
+      {
+        "name": "totalcommander"
+      },
+      {
+        "name": "procexp"
+      },
+      {
+        "name": "hwinfo.install"
+      },
+      {
+        "name": "vlc"
+      },
+      {
+        "name": "aimp"
+      },
+      {
+        "name": "irfanview"
+      },
+      {
+        "name": "sublimetext3"
+      },
+      {
+        "name": "teamviewer"
+      },
+      {
+        "name": "keepass.install"
+      },
+      {
+        "name": "uget"
+      },
+      {
+        "name": "virtualbox"
+      },
+      {
+        "name": "virtualbox.extensionpack"
+      },
+      {
+        "name": "qbittorrent"
+      },
+      {
+        "name": "google-backup-and-sync"
+      }
+    ]
+  },
+  "override_attributes": { },
+  "run_list": [
+    "recipe[windows::packages]"
+  ]
+}

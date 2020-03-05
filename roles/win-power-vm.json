@@ -1,0 +1,34 @@
+{
+  "name": "win-power-vm",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "execute": [
+        {
+          "command": "powercfg.exe /hibernate off",
+          "description": "Turn off Hibernation"
+        },
+      {
+        "command": "powercfg -Change -monitor-timeout-ac 0",
+        "description": "Turn off monitor timeout on AC power"
+      },
+      {
+        "command": "powercfg -Change -monitor-timeout-dc 0",
+        "description": "Turn off monitor timeout on DC power"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 600",
+        "description": "POWER DC Settings {Balanced}{Hard disk}{Turn off hard disk after}{600}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
+        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+      }
+      ]
+  },
+  "override_attributes": { },
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}
