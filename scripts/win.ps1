@@ -23,12 +23,12 @@ new-module -name Cookbooks-Generic -scriptblock {
 
         USAGE DESCRIPTION
 
-            [get-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
+            . { iwr -useb <url> } | iex; [get-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
 
             get-help                   : shows this page
             apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
 
-            Available runlists:
+            Available windows runlists:
                 win-kms.json
                 win-laptop-full.json
                 win-laptop-minimal.json
@@ -41,11 +41,11 @@ new-module -name Cookbooks-Generic -scriptblock {
                 development
 
         USAGE EXAMPLES:
-            . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist
+            . { iwr -useb <url> } | iex; apply-runlist
 
-            . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist -runlist win-laptop-full.json
+            . { iwr -useb <url> } | iex; apply-runlist -runlist win-laptop-full.json
 
-            . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/development/scripts/win.ps1 } | iex; apply-runlist -runlist win-server-minimal.json -branch development
+            . { iwr -useb <url> } | iex; apply-runlist -runlist win-server-minimal.json -branch development
 
         "
     }

@@ -1,12 +1,30 @@
 #!/bin/sh
-###########################################################
-#
-# curl https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo sh
-# curl -s https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo bash /dev/stdin linux-packages.json
-#
-###########################################################
 
-runlist=${1:-linux-vm-minimal.json}
+help() {
+printf "
+
+NAME
+        A Linux bootstrapper based of Chef
+
+SYNOPSIS
+        curl -s <url> | sudo sh|bash [-s help|apply] [role]
+
+DESCRIPTION
+        Available runlists for linux:
+            linux-vm-minimal.json
+            linux-packages.json
+
+EXAMPLES
+        curl -s <url> | sudo sh
+        curl -s <url> | sudo bash -s apply linux-packages.json
+        curl -s <url> | sudo bash -s help
+
+"
+}
+
+apply() {
+
+runlist=${2:-linux-vm-minimal.json}
 tmp_dir=$(mktemp -d -t $(date +%Y-%m-%d-%H-%M-%S)-XXXXXXXXXX)
 
 chef_client_rhel8="https://packages.chef.io/files/stable/chef/15.5.9/el/8/chef-15.5.9-1.el7.x86_64.rpm"
@@ -33,3 +51,6 @@ chef-client -z -c $tmp_dir/cookbooks-generic/config.rb -j $tmp_dir/cookbooks-gen
 
 printf "\n    ==========[ Cleanup dir $tmp_dir ]==========\n"
 rm -rf $tmp_dir && printf "Done../n"
+}
+
+$1 $2
