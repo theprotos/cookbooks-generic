@@ -6,15 +6,14 @@
   "default_attributes": {
     "execute": [
       {
-        "command": "Install-PackageProvider -Name NuGet -Force",
-        "description": "Install Nuget"
+        "command": "powershell -Command \"Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force\"",
+        "description": "Install Nuget package manager"      },
+      {
+        "command": "powershell -Command \"Install-Module -Name DockerMsftProvider -Repository PSGallery -Force\"",
+        "description": "Add repository for Docker"
       },
       {
-        "command": "Install-Module -Name DockerMsftProvider -Repository PSGallery -Force",
-        "description": "Add Docker provider"
-      },
-      {
-        "command": "Install-Package -Name docker -ProviderName DockerMsftProvider -Force",
+        "command": "powershell -Command \"if ((Get-PackageProvider -ListAvailable).Name -Contains 'DockerMsftProvider') {Install-Package -Name docker -ProviderName DockerMsftProvider -Force}\"",
         "description": "Install docker"
       }
     ]

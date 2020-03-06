@@ -1,0 +1,43 @@
+{
+  "name": "win-sshd",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "execute": [
+      {
+        "command": "powershell -Command \"Add-WindowsCapability -Online -Name (Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Client*').name\"",
+        "description": "Install SSH client"
+      },
+      {
+        "command": "powershell -Command \"Add-WindowsCapability -Online -Name (Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Server*').name\"",
+        "description": "Install SSH server"
+      },
+      {
+        "command": "powershell -Command \"Set-Service -Name sshd -StartupType 'Automatic'\"",
+        "description": "autostart sshd"
+      },
+      {
+        "command": "powershell -Command \"New-NetFirewallRule -Name sshd -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22\"",
+        "description": "sshd firewall rules"
+      },
+      {
+        "command": "powershell -Command \"Start-Service sshd\"",
+        "description": "start sshd"
+      }
+    ],
+    "registry": [
+      {
+      "description": "Set ssh PowerShell",
+      "path": "HKLM\\SOFTWARE\\OpenSSH",
+      "name": "DefaultShell",
+      "type": "string",
+      "data": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]",
+    "recipe[windows::registry]"
+  ]
+}

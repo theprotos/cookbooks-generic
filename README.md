@@ -16,7 +16,7 @@ Applies below tweaks:
    - Power
    - Registry
    - Packages
-   - Disable Windows features
+   - Windows features: cortana, onenote, docker 
 - Packer cookbook will be DEPRECATED
 
 ### Install and apply via script

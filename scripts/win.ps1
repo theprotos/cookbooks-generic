@@ -22,8 +22,11 @@ new-module -name Cookbooks-Generic -scriptblock {
             Chef client applies runlists from this repository.
 
         USAGE DESCRIPTION
+
+            [get-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
+
             get-help                   : shows this page
-            apply-runlist              : exuals to 'apply-runlist -runlist win-vm-minimal.json'
+            apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
 
             Available runlists:
                 win-kms.json
@@ -33,10 +36,16 @@ new-module -name Cookbooks-Generic -scriptblock {
                 win-vm-full.json
                 win-wm-minimal.json
 
+            Available branches:
+                master
+                development
+
         USAGE EXAMPLES:
             . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist
 
             . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist -runlist win-laptop-full.json
+
+            . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/development/scripts/win.ps1 } | iex; apply-runlist -runlist win-server-minimal.json -branch development
 
         "
     }
@@ -85,7 +94,9 @@ new-module -name Cookbooks-Generic -scriptblock {
             [string]
             $tempdir,
             [string]
-            $repo
+            $repo,
+            [string]
+            $branch
         )
 
         Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Create $tempdir ... ]========    "
@@ -96,7 +107,7 @@ new-module -name Cookbooks-Generic -scriptblock {
 
         try {
             Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Clone $repo to $tempdir ... ]========    "
-            git clone $repo $tempdir
+            git clone $repo -b $branch --single-branch $tempdir
         }
         catch {
             Remove-MpPreference -ExclusionPath $tempdir -ErrorAction SilentlyContinue
@@ -118,17 +129,20 @@ new-module -name Cookbooks-Generic -scriptblock {
             [string]
             $tempdir = "$env:SystemDrive\tmp\choco-$( [System.Guid]::NewGuid().guid )",
             [string]
-            $repo = "https://github.com/theprotos/cookbooks-generic.git"
+            $repo = "https://github.com/theprotos/cookbooks-generic.git",
+            [string]
+            $branch = "master"
         )
 
         Install-Choco
         Install-Packages
-        Clone-Repo $tempdir $repo
+        Clone-Repo $tempdir $repo $branch
 
         try {
             Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Apply runlist $runlist ... ]========    "
             #cd $tempdir
             chef-client -z -c "$tempdir\config.rb" -j "$tempdir\$runlist"
+            #chef-client -z -c "$tempdir\config.rb" -o ‘recipe[my-cookbook::my-recipe]’
         }
         catch {
             Remove-Item -force -recurse -ErrorAction SilentlyContinue $tempdir
