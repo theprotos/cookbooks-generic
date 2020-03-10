@@ -1,11 +1,14 @@
 {
   "run_list": [
-    "role[win-power-laptop]",
     "role[win-cortana]",
+    "role[win-location]",
     "role[win-disable-onedrive]",
+    "role[win-disable-telemetry]",
+    "role[win-power-laptop]",
+    "role[win-services]",
     "role[win-update]",
-    "role[win-ui-tweaks]",
     "role[win-minimal]",
-    "role[win-network]"
+    "role[win-network]",
+    "role[win-ui-tweaks]"
   ]
 }

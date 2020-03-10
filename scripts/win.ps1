@@ -2,18 +2,15 @@ new-module -name Cookbooks-Generic -scriptblock {
     #Requires -RunAsAdministrator
 
     <#
-    .Example . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist
-    .Example . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist -runlist win-vm-minimal.json
-    .Example . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist -runlist win-laptop-full.json
-    .Example . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; get-help
-
+        Start-Process powershell -Verb runAs
+        .\win.ps1 | show-help
      #>
 
-    function Get-Help {
+    function Show-Help {
 
         Write-Host "
         TOPIC
-            Windows PowerShell Help System
+            Dynamic module Cookbooks-Generic.
 
         SHORT DESCRIPTION
             Installs chocolatey.
@@ -22,19 +19,25 @@ new-module -name Cookbooks-Generic -scriptblock {
             Chef client applies runlists from this repository.
 
         USAGE DESCRIPTION
+            . { iwr -useb <url> } | iex; [show-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
 
-            . { iwr -useb <url> } | iex; [get-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
-
-            get-help                   : shows this page
+            show-help                   : shows this page
             apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
 
-            Available windows runlists:
-                win-kms.json
+            Available windows runlists: $(
+        if (Test-Path -Path template -IsValid){
+            Get-ChildItem ..\*.json  -ErrorAction SilentlyContinue | foreach { "`n`t`t" + $_.name }
+        } else {
+            '   `nwin-kms.json
                 win-laptop-full.json
                 win-laptop-minimal.json
                 win-packages.json
                 win-vm-full.json
                 win-wm-minimal.json
+
+            '
+        }
+        )
 
             Available branches:
                 master
@@ -124,7 +127,7 @@ new-module -name Cookbooks-Generic -scriptblock {
 
         [cmdletbinding(SupportsShouldProcess = $true)]
         param (
-            [string]
+            [string[]]
             $runlist = "win-vm-minimal.json",
             [string]
             $tempdir = "$env:SystemDrive\tmp\choco-$( [System.Guid]::NewGuid().guid )",
@@ -139,9 +142,8 @@ new-module -name Cookbooks-Generic -scriptblock {
         Clone-Repo $tempdir $repo $branch
 
         try {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Apply runlist $runlist ... ]========    "
-            #cd $tempdir
-            chef-client -z -c "$tempdir\config.rb" -j "$tempdir\$runlist"
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Apply runlist: $runlist ... ]========    "
+            $runlist | % {chef-client -z -c $tempdir\config.rb -j $tempdir\$_}
             #chef-client -z -c "$tempdir\config.rb" -o ‘recipe[my-cookbook::my-recipe]’
         }
         catch {
@@ -155,6 +157,6 @@ new-module -name Cookbooks-Generic -scriptblock {
         }
     }
 
-    export-modulemember -function 'Apply-Runlist' -alias 'apply-runlist'
-    export-modulemember -function 'Get-Help' -alias 'get-help'
+    export-modulemember -function 'Apply-Runlist' #-alias 'apply-runlist'
+    export-modulemember -function 'Show-Help' #-alias 'show-help'
 }

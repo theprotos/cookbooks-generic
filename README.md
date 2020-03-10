@@ -24,6 +24,7 @@ Applies below tweaks:
 ```
 . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist
 . { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist win-packages.json
+. { iwr -useb https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/win.ps1 } | iex; apply-runlist -runlist win-packages.json,win-kms.json
 ```
 
 
@@ -43,7 +44,7 @@ chef-client -z -c config.rb -j win-wm-minimal.json
 ### Install and apply via script
 
 ```
-curl -s https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo bash /dev/stdin linux-packages.json
+curl -s https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo bash -s linux-packages.json
 ```
 
 
