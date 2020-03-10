@@ -3,7 +3,7 @@ new-module -name Cookbooks-Generic -scriptblock {
 
     <#
         Start-Process powershell -Verb runAs
-        .\win.ps1 | show-help
+        .\win.ps1 | iex; show-help
      #>
 
     function Show-Help {
@@ -21,14 +21,15 @@ new-module -name Cookbooks-Generic -scriptblock {
         USAGE DESCRIPTION
             . { iwr -useb <url> } | iex; [show-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
 
-            show-help                   : shows this page
+            show-help                  : shows this page
             apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
 
             Available windows runlists: $(
-        if (Test-Path -Path template -IsValid){
+        if (Test-Path -Path ..){
             Get-ChildItem ..\*.json  -ErrorAction SilentlyContinue | foreach { "`n`t`t" + $_.name }
         } else {
-            '   `nwin-kms.json
+            '
+                win-kms.json
                 win-laptop-full.json
                 win-laptop-minimal.json
                 win-packages.json
