@@ -1,1 +1,1 @@
-default['debug_logger'] = 'wrokstation-attributes-file'
+default['debug_logger'] = 'packer-attributes-file'

@@ -7,7 +7,7 @@ NAME
         A Linux bootstrapper based of Chef
 
 SYNOPSIS
-        curl -s <url> | sudo sh|bash [-s help|apply] [role]
+        curl -s <url> | sudo sh|bash [-s help|apply] [role] [branch]
 
 DESCRIPTION
         Available runlists for linux:
@@ -16,7 +16,7 @@ DESCRIPTION
 
 EXAMPLES
         curl -s <url> | sudo sh
-        curl -s <url> | sudo bash -s apply linux-packages.json
+        curl -s <url> | sudo bash -s apply linux-packages.json development
         curl -s <url> | sudo bash -s help
 
 "
@@ -24,6 +24,8 @@ EXAMPLES
 
 apply() {
 
+repo="https://github.com/theprotos/cookbooks-generic.git"
+branch=${3:-master}
 runlist=${2:-linux-vm-minimal.json}
 tmp_dir=$(mktemp -d -t $(date +%Y-%m-%d-%H-%M-%S)-XXXXXXXXXX)
 
@@ -44,7 +46,7 @@ yum localinstall -y -q -e 0 $tmp_dir/chef-client.rpm && printf "Done.."
 chef-client --chef-license=accept > /dev/null 2>&1
 
 printf "\n    ==========[ Clone repo to $tmp_dir ]==========\n"
-git clone https://github.com/theprotos/cookbooks-generic.git $tmp_dir/cookbooks-generic
+git clone $repo -b $branch --single-branch $tmp_dir/cookbooks-generic
 
 printf "\n    ==========[ Run chef-client with $runlist ]==========\n"
 chef-client -z -c $tmp_dir/cookbooks-generic/config.rb -j $tmp_dir/cookbooks-generic/$runlist
@@ -53,4 +55,4 @@ printf "\n    ==========[ Cleanup dir $tmp_dir ]==========\n"
 rm -rf $tmp_dir && printf "Done../n"
 }
 
-$1 $2
+$1 $2 $3

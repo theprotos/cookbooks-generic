@@ -25,7 +25,7 @@ new-module -name Cookbooks-Generic -scriptblock {
             apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
 
             Available windows runlists: $(
-        if (Test-Path -Path ..){
+        if (Test-Path -Path ..\config.rb -ErrorAction SilentlyContinue){
             Get-ChildItem ..\*.json  -ErrorAction SilentlyContinue | foreach { "`n`t`t" + $_.name }
         } else {
             '
