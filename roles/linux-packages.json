@@ -63,9 +63,6 @@
         "name": "python3"
       },
       {
-        "name": "npm"
-      },
-      {
         "name": "bash-completion"
       }
     ]
