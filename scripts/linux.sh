@@ -25,8 +25,8 @@ EXAMPLES
 apply() {
 
 repo="https://github.com/theprotos/cookbooks-generic.git"
-branch=${2:-master}
 runlist=${1:-linux-vm-minimal.json}
+branch=${2:-master}
 tmp_dir=$(mktemp -d -t $(date +%Y-%m-%d-%H-%M-%S)-XXXXXXXXXX)
 
 chef_client_rhel8="https://packages.chef.io/files/stable/chef/15.5.9/el/8/chef-15.5.9-1.el7.x86_64.rpm"
@@ -43,6 +43,7 @@ yum install -y -q -e 0 curl git && printf "Done.."
 if ($( chef-client -v > /dev/null )); then
     printf "\nAlready installed.."
 else
+    printf "\n    ==========[ Install chef-client ]==========\n"
     curl -s $chef_client_rhel7 -J -L --output $tmp_dir/chef-client.rpm
     yum localinstall -y -q -e 0 $tmp_dir/chef-client.rpm && printf "Done.."
     chef-client --chef-license=accept > /dev/null 2>&1
@@ -55,7 +56,7 @@ printf "\n    ==========[ Run chef-client with $runlist ]==========\n"
 chef-client -z -c $tmp_dir/cookbooks-generic/config.rb -j $tmp_dir/cookbooks-generic/$runlist
 
 printf "\n    ==========[ Cleanup dir $tmp_dir ]==========\n"
-rm -rf $tmp_dir && printf "Done../n"
+rm -rf $tmp_dir && printf "Done..\n"
 }
 
 $1 $2

@@ -30,6 +30,12 @@
         "name": "kernel-devel"
       },
       {
+        "name": "gcc-c++"
+      },
+      {
+        "name": "make"
+      },
+      {
         "name": "awscli"
       },
       {
