@@ -1,0 +1,67 @@
+{
+  "name": "linux-k8s",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "linux-k8s",
+    "files": [
+      {
+        "name": "/etc/yum.repos.d/kubernetes.repo",
+        "mode": "0644",
+        "source": "kubernetes.repo"
+      }
+    ],
+    "package": [
+      {
+        "name": "kubelet",
+        "options": "--disableexcludes=kubernetes"
+      },
+      {
+        "name": "kubeadm",
+        "options": "--disableexcludes=kubernetes"
+      },
+      {
+        "name": "kubectl",
+        "options": "--disableexcludes=kubernetes"
+      }
+    ],
+    "services": [
+      {
+        "name": "kubelet",
+        "action": "enable",
+        "options": "--now"
+      }
+    ],
+    "execute": [
+      {
+        "command": "swapoff -a",
+        "description": "Disable swap"
+      },
+      {
+        "command": "curl -sL https://github.com/kubernetes/kompose/releases/latest/download/kompose-$(uname -s)-amd64 >/usr/local/bin/kompose && chmod a+x /usr/local/bin/kompose",
+        "description": "Install kompose"
+      }
+    ],
+    "sysctl": [
+      {
+        "file": "//etc//sysctl.d//k8s.conf",
+        "key": "net.bridge.bridge-nf-call-ip6tables",
+        "value": "1"
+      },
+      {
+        "file": "//etc//sysctl.d//k8s.conf",
+        "key": "net.bridge.bridge-nf-call-iptables",
+        "value": "1"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::files]",
+    "recipe[linux::exec]",
+    "recipe[linux::packages]",
+    "recipe[linux::services]",
+    "recipe[linux::sysctl]"
+  ]
+}

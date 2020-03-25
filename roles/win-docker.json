@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-docker",
     "execute": [
       {
         "command": "powershell -Command \"Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force\"",

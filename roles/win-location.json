@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-location",
     "registry": [
       {
         "description": "Disable location services 1",

@@ -1,0 +1,7 @@
+{
+  "run_list": [
+    "role[linux-pre-docker]",
+    "role[linux-docker]",
+    "role[linux-k8s]"
+  ]
+}

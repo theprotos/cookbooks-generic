@@ -3,7 +3,9 @@
   "chef_type": "role",
   "json_class": "Chef::Role",
   "description": "",
-  "default_attributes": {},
+  "default_attributes": {
+    "debug_logger": "linux-minimal"
+  },
   "override_attributes": {},
   "run_list": [
     "recipe[linux::packages]"

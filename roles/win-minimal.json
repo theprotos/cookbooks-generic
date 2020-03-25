@@ -4,7 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
-    "package": []
+    "debug_logger": "win-minimal"
   },
   "override_attributes": { },
   "run_list": [

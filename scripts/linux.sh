@@ -7,26 +7,30 @@ NAME
         A Linux bootstrapper based of Chef.
 
 SYNOPSIS
-        curl -s <url> | sudo sh|bash -s help|apply
-        curl -s <url> | sudo sh|bash -s apply [role]
-        curl -s <url> | sudo sh|bash -s apply role [branch]
+        curl -sL <url> | sudo sh|bash -s help|apply
+        curl -sL <url> | sudo sh|bash -s apply [role]
+        curl -sL <url> | sudo sh|bash -s apply role1.json,role2.json [branch]
 
 DESCRIPTION
         Available runlists for linux:
-            linux-vm-minimal.json
+            linux-docker.json
+            linux-k8s.json
+            linux-motd.json
             linux-packages.json
+            linux-ssh.json
+            linux-vagrant.json
 
 EXAMPLES
-        curl -s <url> | sudo bash -s apply
-        curl -s <url> | sudo bash -s apply linux-packages.json development
-        curl -s <url> | sudo bash -s help
+        curl -sL <url> | sudo bash -s apply
+        curl -sL <url> | sudo bash -s apply linux-packages.json development
+        curl -sL <url> | sudo bash -s help
 
 "
 }
 
 apply() {
 local repo="https://github.com/theprotos/cookbooks-generic.git"
-local runlist=${1:-linux-vm-minimal.json}
+local runlist=${1:-linux-vagrant.json}
 local branch=${2:-master}
 local tmp_dir=$(mktemp -d -t $(date +%Y-%m-%d-%H-%M-%S)-XXXXXXXXXX)
 
@@ -38,23 +42,27 @@ printf "    ==========[ OS Version ]==========\n"
 grep -w 'NAME' /etc/*-release
 grep -w 'VERSION' /etc/*-release
 
-printf "\n    ==========[ Install curl and git ]==========\n"
+printf "\n    ==========[ Update curl and git ]==========\n"
+#yum update -y -q -e 0
 yum install -y -q -e 0 curl git && printf "Done..\n"
 
 printf "\n    ==========[ Install chef-client ]==========\n"
-if ($( chef-client -v > /dev/null )); then
+if ($( chef-client -v > /dev/null 2>&1 )); then
     printf "Already installed..\n"
 else
-    curl -s $chef_client_rhel7 -J -L --output $tmp_dir/chef-client.rpm
+    curl -sL $chef_client_rhel7 -J -L --output $tmp_dir/chef-client.rpm
     yum localinstall -y -q -e 0 $tmp_dir/chef-client.rpm && printf "Done..\n"
     chef-client --chef-license=accept > /dev/null 2>&1
 fi
 
-printf "\n    ==========[ Clone $branch $repo to $tmp_dir ]==========\n"
+printf "\n    ==========[ Clone $branch from $repo to $tmp_dir ]==========\n"
 git clone $repo -b $branch --single-branch $tmp_dir/cookbooks-generic
 
-printf "\n    ==========[ Run chef-client with $runlist ]==========\n"
-chef-client -z -c $tmp_dir/cookbooks-generic/config.rb -j $tmp_dir/cookbooks-generic/$runlist
+for rlist in $(echo $runlist | tr "," "\n")
+do
+  printf "\n    ==========[ Run chef-client with $rlist ]==========\n"
+  chef-client -z -c $tmp_dir/cookbooks-generic/config.rb -j $tmp_dir/cookbooks-generic/$rlist
+done
 
 printf "\n    ==========[ Cleanup dir $tmp_dir ]==========\n"
 rm -rf $tmp_dir && printf "Done..\n"

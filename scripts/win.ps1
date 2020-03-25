@@ -19,7 +19,7 @@ new-module -name Cookbooks-Generic -scriptblock {
             Chef client applies runlists from this repository.
 
         USAGE DESCRIPTION
-            . { iwr -useb <url> } | iex; [show-help|apply-runlist] [-runlist <list.json>] [-branch <branch>]
+            . { iwr -useb <url> } | iex; [show-help|apply-runlist] [-runlist <list.json1>,<list2.json>] [-branch <branch>]
 
             show-help                  : shows this page
             apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
@@ -110,7 +110,7 @@ new-module -name Cookbooks-Generic -scriptblock {
         Add-MpPreference -ExclusionPath $tempdir -ErrorAction SilentlyContinue
 
         try {
-            Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Clone $repo to $tempdir ... ]========    "
+            Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Clone $branch $repo to $tempdir ... ]========    "
             git clone $repo -b $branch --single-branch $tempdir
         }
         catch {

@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-disable-telemetry",
     "registry": [
       {
         "description": "Disable remote assistance access",

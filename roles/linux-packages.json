@@ -1,9 +1,10 @@
 {
-  "name": "linux-minimal",
+  "name": "linux-packages",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "linux-packages",
     "package": [
       {
         "name": "epel-release"
@@ -64,11 +65,21 @@
       },
       {
         "name": "bash-completion"
+      },
+      {
+        "name": "nodejs"
+      }
+    ],
+    "execute": [
+      {
+        "command": "curl -sL https://rpm.nodesource.com/setup_13.x | sudo -E bash -",
+        "description": "Add NodeJS 13 repo"
       }
     ]
   },
   "override_attributes": {},
   "run_list": [
+    "recipe[linux::exec]",
     "recipe[linux::packages]"
   ]
 }

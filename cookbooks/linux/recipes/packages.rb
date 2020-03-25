@@ -1,16 +1,17 @@
-packages = node['package']
+linux_packages = node['package']
 
-if !packages.nil?
-  packages.each do |package|
-    if package.nil? || package.empty?
+if !linux_packages.nil?
+  linux_packages.each do |pkg|
+    if pkg.nil? || pkg.empty?
       Chef::Log.warn("#{node['debug_logger']}: no packages specified")
       next
     end
 
-    Chef::Log.info("#{node['debug_logger']}: Installing #{package['name']}")
-    package "#{node['debug_logger']}: Installing #{package['name']}" do
-      package_name package['name']
-      action package['action'] || :upgrade
+    Chef::Log.info("#{node['debug_logger']}: Installing #{pkg['name']}")
+    package "#{node['debug_logger']}: Installing #{pkg['name']}" do
+      package_name pkg['name']
+      options pkg['options']
+      action pkg['action'] || :upgrade
       ignore_failure true
     end
   end

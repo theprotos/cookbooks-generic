@@ -1,0 +1,10 @@
+    ==========[ GCP ]==========
+export GOOGLE_APPLICATION_CREDENTIALS=
+    =====[ AWS ]=====               =====[ AZURE ]=====
+export AWS_ACCESS_KEY_ID=       export client_id=
+export AWS_SECRET_ACCESS_KEY=   export client_secret=
+export AWS_DEFAULT_REGION=      export tenant_id=
+                                export subscription_id=
+    ========== [ Install GNOME ] ==========
+sudo yum groupinstall -y 'X Window System'
+sudo yum install gnome-classic-session gnome-terminal nautilus-open-terminal control-center liberation-mono-fonts chrome-gnome-shell firefox

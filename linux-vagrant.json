@@ -1,5 +1,7 @@
 {
   "run_list": [
+    "role[linux-motd]",
+    "role[linux-ssh]",
     "role[linux-minimal]"
   ]
 }

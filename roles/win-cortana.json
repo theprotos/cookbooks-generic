@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-cortana",
     "registry": [
       {
         "description": "Disabling Cortana in Windows search",

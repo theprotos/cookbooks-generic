@@ -4,7 +4,8 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
-    "service": [
+    "debug_logger": "win-services",
+    "services": [
       {
         "name": "lfsvc",
         "startup_type": "manual"

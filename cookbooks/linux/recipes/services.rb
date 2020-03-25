@@ -7,10 +7,9 @@ if !services.nil?
       next
     end
 
-    windows_service service['name'] do
-      action :configure_startup
-      startup_type service['startup_type'] || :manual
-      only_if { ::Win32::Service.exists?(service['name']) }
+    service service['name'] do
+      action service['action'] || :enable
+      options service['options']
       ignore_failure true
     end
   end

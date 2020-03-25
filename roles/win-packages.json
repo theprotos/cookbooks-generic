@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-packages",
     "package": [
       {
         "name": "googlechrome"
@@ -31,6 +32,9 @@
       },
       {
         "name": "openjdk"
+      },
+      {
+        "name": "jdk8"
       },
       {
         "name": "maven"

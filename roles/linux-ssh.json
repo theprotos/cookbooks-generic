@@ -1,0 +1,30 @@
+{
+  "name": "linux-ssh",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "linux-ssh",
+    "execute": [
+      {
+        "command": "sed -i \"/^[^#]*PasswordAuthentication[[:space:]]no/c\\PasswordAuthentication yes\" /etc/ssh/sshd_config",
+        "description": "SSH: allow password"
+      },
+      {
+        "command": "printf \"#Overwritten by Chef\\nvagrant ALL=(ALL) NOPASSWD: ALL\\n\" > /etc/sudoers.d/vagrant",
+        "description": "SUDO for vagrant"
+      }
+    ],
+    "services": [
+      {
+        "name": "sshd",
+        "action": "restart"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::exec]",
+    "recipe[linux::services]"
+  ]
+}

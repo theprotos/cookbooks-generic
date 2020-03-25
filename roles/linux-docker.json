@@ -1,0 +1,73 @@
+{
+  "name": "linux-docker",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "linux-docker",
+    "files": [
+      {
+        "name": "/etc/docker/daemon.json",
+        "source": "docker-daemon.json",
+        "mode": "0600"
+      }
+    ],
+    "package": [
+      {
+        "name": "containerd.io"
+      },
+      {
+        "name": "docker-compose"
+      },
+      {
+        "name": "docker-ce"
+      },
+      {
+        "name": "docker-ce-cli"
+      },
+      {
+        "name": "buildah"
+      },
+      {
+        "name": "podman"
+      }
+    ],
+    "execute": [
+      {
+        "command": "echo https://github.com/docker/machine/releases/latest/download/docker-machine-$(uname -s)-$(uname -m) > /tmp/url_dockerm_latest",
+        "description": "Get latest docker-machine url"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_dockerm_latest) >/usr/local/bin/docker-machine && chmod a+x /usr/local/bin/docker-machine",
+        "description": "Install docker-machine"
+      }
+    ],
+    "services": [
+      {
+        "name": "docker",
+        "action": "enable",
+        "options": "--now"
+      }
+    ],
+    "users": [
+      {
+        "description": "add vagrant to docker group",
+        "name": "vagrant",
+        "group": "docker"
+      },
+      {
+        "description": "add vagrant to vboxsf group",
+        "name": "vagrant",
+        "group": "vboxsf"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::files]",
+    "recipe[linux::exec]",
+    "recipe[linux::packages]",
+    "recipe[linux::services]",
+    "recipe[linux::users]"
+  ]
+}

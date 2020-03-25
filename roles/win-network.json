@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-network",
     "registry": [
       {
         "description": "Windows network half-open TCP connections limit",

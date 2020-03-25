@@ -1,0 +1,21 @@
+{
+  "name": "linux-motd",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "linux-motd",
+    "files": [
+      {
+        "name": "/etc/motd",
+        "source": "motd",
+        "mode": "0644",
+        "action": "create"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::files]"
+  ]
+}

@@ -4,6 +4,7 @@
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
+    "debug_logger": "win-power-laptop",
     "execute": [
       {
         "command": "powercfg -SETACTIVE SCHEME_BALANCED",

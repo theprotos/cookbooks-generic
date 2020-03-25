@@ -4,7 +4,7 @@ default['package'] = [{"name" => "python3",           "action" => "upgrade"},
                       {"name" => "visualstudiocode",  "action" => "upgrade"},
                       {"name" => "7zip",              "action" => "upgrade"}]
 
-default['service'] = [{"name" => "lfsvc",           "startup_type" => "manual"},
+default['services'] = [{"name" => "lfsvc",           "startup_type" => "manual"},
                       {"name" => "CscService",      "startup_type" => "manual"},
                       {"name" => "DiagTrack",       "startup_type" => "manual"},
                       {"name" => "SCardSvr",        "startup_type" => "manual"},
