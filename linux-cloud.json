@@ -1,0 +1,6 @@
+{
+  "run_list": [
+    "role[linux-packages]",
+    "role[linux-cloud]"
+  ]
+}

@@ -33,14 +33,6 @@
       }
     ],
     "execute": [
-      {
-        "command": "echo https://github.com/docker/machine/releases/latest/download/docker-machine-$(uname -s)-$(uname -m) > /tmp/url_dockerm_latest",
-        "description": "Get latest docker-machine url"
-      },
-      {
-        "command": "curl -sL $(cat /tmp/url_dockerm_latest) >/usr/local/bin/docker-machine && chmod a+x /usr/local/bin/docker-machine",
-        "description": "Install docker-machine"
-      }
     ],
     "services": [
       {

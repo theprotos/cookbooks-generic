@@ -1,0 +1,55 @@
+{
+  "name": "linux-cloud",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "linux-cloud",
+    "execute": [
+      {
+        "command": "echo https://github.com/docker/machine/releases/latest/download/docker-machine-$(uname -s)-$(uname -m) > /tmp/url_dockerm_latest",
+        "description": "Get latest docker-machine url"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_dockerm_latest) >/usr/local/bin/docker-machine && chmod a+x /usr/local/bin/docker-machine",
+        "description": "Install docker-machine"
+      },
+      {
+        "command": "curl -sL https://github.com/kubernetes/kompose/releases/latest/download/kompose-$(uname -s)-amd64 >/usr/local/bin/kompose && chmod a+x /usr/local/bin/kompose",
+        "description": "Install kompose"
+      },
+      {
+        "command": "echo https://releases.hashicorp.com/terraform/$(curl -sL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')/terraform_$(curl -sL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')_linux_amd64.zip >/tmp/url_tf_latest",
+        "description": "Get latest terraform url -> /tmp/url_*_latest"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_tf_latest) >/tmp/terraform.zip && unzip -qq -o /tmp/terraform.zip -d /usr/local/bin/terraform && chmod a+x /usr/local/bin/terraform",
+        "description": "Install latest terraform"
+      },
+      {
+        "command": "echo https://github.com/terraform-linters/tflint/releases/latest/download/tflint_linux_amd64.zip >/tmp/url_tflint_latest",
+        "description": "Get latest terraform lint url -> /tmp/url_*_latest"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_tflint_latest) >/tmp/tflint.zip && unzip -qq -o /tmp/tflint.zip -d /usr/local/bin/tflint && chmod a+x /usr/local/bin/tflint",
+        "description": "Install latest terraform lint"
+      },
+      {
+        "command": "echo https://releases.hashicorp.com/vault/1.3.4/vault_1.3.4_linux_amd64.zip >/tmp/url_vault_latest",
+        "description": "Get latest vault url -> /tmp/url_*_latest"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_vault_latest) >/tmp/vault.zip && unzip -qq -o /tmp/vault.zip -d /usr/local/bin/vault && chmod a+x /usr/local/bin/vault",
+        "description": "Install latest vault"
+      },
+      {
+        "command": "curl -sL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash",
+        "description": "Install helm 3"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::exec]"
+  ]
+}

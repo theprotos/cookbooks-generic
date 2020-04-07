@@ -37,10 +37,6 @@
       {
         "command": "swapoff -a",
         "description": "Disable swap"
-      },
-      {
-        "command": "curl -sL https://github.com/kubernetes/kompose/releases/latest/download/kompose-$(uname -s)-amd64 >/usr/local/bin/kompose && chmod a+x /usr/local/bin/kompose",
-        "description": "Install kompose"
       }
     ],
     "sysctl": [
