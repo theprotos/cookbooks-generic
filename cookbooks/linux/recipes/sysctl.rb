@@ -10,7 +10,7 @@ if !sysctlparam.nil?
     Chef::Log.info("#{node['debug_logger']}: Running #{sysparam['description']}")
     sysctl sysparam['key'] do
       value sysparam['value']
-      conf_dir sysparam['file']
+      conf_dir sysparam['dir']
       action sysparam['action']
       ignore_failure true
     end

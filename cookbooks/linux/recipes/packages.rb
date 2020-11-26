@@ -12,6 +12,7 @@ if !linux_packages.nil?
       package_name pkg['name']
       options pkg['options']
       action pkg['action'] || :upgrade
+      flush_cache [ :before ]
       ignore_failure true
     end
   end

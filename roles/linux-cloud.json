@@ -19,11 +19,15 @@
         "description": "Install kompose"
       },
       {
+        "command": "curl -sL https://github.com/direnv/direnv/releases/latest/download/direnv.$(uname -s)-amd64 >/usr/local/bin/direnv && chmod a+x /usr/local/bin/direnv",
+        "description": "Install direnv"
+      },
+      {
         "command": "echo https://releases.hashicorp.com/terraform/$(curl -sL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')/terraform_$(curl -sL https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M '.current_version')_linux_amd64.zip >/tmp/url_tf_latest",
         "description": "Get latest terraform url -> /tmp/url_*_latest"
       },
       {
-        "command": "curl -sL $(cat /tmp/url_tf_latest) >/tmp/terraform.zip && unzip -qq -o /tmp/terraform.zip -d /usr/local/bin/terraform && chmod a+x /usr/local/bin/terraform",
+        "command": "curl -sL $(cat /tmp/url_tf_latest) >/tmp/terraform.zip && unzip -qq -o /tmp/terraform.zip -d /usr/local/bin && chmod a+x /usr/local/bin/terraform",
         "description": "Install latest terraform"
       },
       {
@@ -31,7 +35,7 @@
         "description": "Get latest terraform lint url -> /tmp/url_*_latest"
       },
       {
-        "command": "curl -sL $(cat /tmp/url_tflint_latest) >/tmp/tflint.zip && unzip -qq -o /tmp/tflint.zip -d /usr/local/bin/tflint && chmod a+x /usr/local/bin/tflint",
+        "command": "curl -sL $(cat /tmp/url_tflint_latest) >/tmp/tflint.zip && unzip -qq -o /tmp/tflint.zip -d /usr/local/bin && chmod a+x /usr/local/bin/tflint",
         "description": "Install latest terraform lint"
       },
       {
@@ -39,12 +43,24 @@
         "description": "Get latest vault url -> /tmp/url_*_latest"
       },
       {
-        "command": "curl -sL $(cat /tmp/url_vault_latest) >/tmp/vault.zip && unzip -qq -o /tmp/vault.zip -d /usr/local/bin/vault && chmod a+x /usr/local/bin/vault",
+        "command": "curl -sL $(cat /tmp/url_vault_latest) >/tmp/vault.zip && unzip -qq -o /tmp/vault.zip -d /usr/local/bin && chmod a+x /usr/local/bin/vault",
         "description": "Install latest vault"
+      },
+      {
+        "command": "echo https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '\"' -f 4)/kops-linux-amd64 >/tmp/url_kops_latest",
+        "description": "Get latest kops url -> /tmp/url_*_latest"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_kops_latest) > /usr/local/bin/kops && chmod a+x /usr/local/bin/kops",
+        "description": "Install latest kops"
       },
       {
         "command": "curl -sL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash",
         "description": "Install helm 3"
+      },
+      {
+        "command": "curl -sL https://github.com/TheLocehiliosan/yadm/raw/master/yadm >/usr/local/bin/yadm && chmod a+x /usr/local/bin/yadm",
+        "description": "Install yadm, dotfiles manager"
       }
     ]
   },

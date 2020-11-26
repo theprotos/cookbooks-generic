@@ -37,6 +37,9 @@
         "name": "jdk8"
       },
       {
+        "name": "libericajdk"
+      },
+      {
         "name": "maven"
       },
       {
@@ -71,6 +74,9 @@
       },
       {
         "name": "cmder"
+      },
+      {
+        "name": "microsoft-windows-terminal"
       },
       {
         "name": "nmap"
@@ -145,13 +151,16 @@
         "name": "hwinfo.install"
       },
       {
+        "name": "obs-studio"
+      },
+      {
         "name": "vlc"
       },
       {
         "name": "aimp"
       },
       {
-        "name": "irfanview"
+        "name": "irfanviewplugins"
       },
       {
         "name": "sublimetext3"
@@ -169,7 +178,7 @@
         "name": "virtualbox"
       },
       {
-        "name": "virtualbox.extensionpack"
+        "name": "virtualbox-guest-additions-guest.install"
       },
       {
         "name": "qbittorrent"

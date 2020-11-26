@@ -35,18 +35,44 @@
     ],
     "execute": [
       {
+        "command": "modprobe br_netfilter",
+        "description": "Load br_netfilter"
+      },
+      {
         "command": "swapoff -a",
-        "description": "Disable swap"
+        "description": "Disable swap immediately"
+      },
+      {
+        "command": "sed -i '/ swap / s/^\\(.*\\)$/#\\1/g' /etc/fstab",
+        "description": "Disable permanently"
+      },
+      {
+        "command": "yum clean all && yum update -y",
+        "description": "Update repos"
+      },
+      {
+        "command": "echo https://github.com/containernetworking/plugins/releases/latest/download/cni-plugins-linux-amd64-$(curl -s https://api.github.com/repos/containernetworking/plugins/releases/latest | grep tag_name | cut -d '\"' -f 4).tgz > /tmp/url_cni_latest",
+        "description": "Get latest cni url -> /tmp/url_*_latest"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_cni_latest) > /tmp/cni.tgz && mkdir -p /opt/cni/bin && tar -C /opt/cni/bin -xzf /tmp/cni.tgz && rm -f /tmp/cni.tgz",
+        "description": "Install latest cni plugins"
+      },
+      {
+        "command": "echo https://github.com/vmware-tanzu/sonobuoy/releases/latest/download/sonobuoy_$(curl -s https://api.github.com/repos/vmware-tanzu/sonobuoy/releases/latest | grep tag_name | cut -d '\"' -f 4 | cut -c 2-7)_linux_amd64.tar.gz > /tmp/url_sonobuoy_latest",
+        "description": "Get latest sonobuoy url -> /tmp/url_*_latest"
+      },
+      {
+        "command": "curl -sL $(cat /tmp/url_sonobuoy_latest) > /tmp/sonobuoy.tar.gz && tar -C /usr/local/bin -xzf /tmp/sonobuoy.tar.gz && rm -f /tmp/sonobuoy.tar.gz",
+        "description": "Install latest sonobuoy"
       }
     ],
     "sysctl": [
       {
-        "file": "//etc//sysctl.d//k8s.conf",
         "key": "net.bridge.bridge-nf-call-ip6tables",
         "value": "1"
       },
       {
-        "file": "//etc//sysctl.d//k8s.conf",
         "key": "net.bridge.bridge-nf-call-iptables",
         "value": "1"
       }

@@ -17,9 +17,6 @@
         "name": "containerd.io"
       },
       {
-        "name": "docker-compose"
-      },
-      {
         "name": "docker-ce"
       },
       {
@@ -33,6 +30,10 @@
       }
     ],
     "execute": [
+      {
+        "command": "curl -sL https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64 >/usr/local/bin/docker-compose && chmod a+x /usr/local/bin/docker-compose",
+        "description": "Install latest docker-compose"
+      }
     ],
     "services": [
       {

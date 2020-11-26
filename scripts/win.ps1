@@ -68,6 +68,21 @@ new-module -name Cookbooks-Generic -scriptblock {
         }
     }
 
+    function Install-Scoop {
+        <#
+        .Description
+        #>
+        try {
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ POWERSHELL: Install chocolatey... ]========    "
+            # Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+            Set-ExecutionPolicy Bypass -Scope Process -Force; iwr -useb get.scoop.sh | iex
+        }
+        catch {
+            Write-Error "$( $_.exception.message )"
+            throw $_.exception
+        }
+    }
+
     function Install-Packages {
         try {
             Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ CHOCO: Install git... ]========    "
@@ -139,6 +154,7 @@ new-module -name Cookbooks-Generic -scriptblock {
         )
 
         Install-Choco
+        Install-Scoop
         Install-Packages
         Clone-Repo $tempdir $repo $branch
 
