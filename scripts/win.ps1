@@ -75,7 +75,7 @@ new-module -name Cookbooks-Generic -scriptblock {
         try {
             Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ POWERSHELL: Install chocolatey... ]========    "
             # Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-            Set-ExecutionPolicy Bypass -Scope Process -Force; iwr -useb get.scoop.sh | iex
+            invoke-expression 'cmd /c start powershell -Command { Set-ExecutionPolicy Bypass -Scope Process -Force; iwr -useb get.scoop.sh | iex }'
         }
         catch {
             Write-Error "$( $_.exception.message )"
