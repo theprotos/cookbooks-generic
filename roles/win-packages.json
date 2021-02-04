@@ -185,6 +185,9 @@
       },
       {
         "name": "google-backup-and-sync"
+      },
+      {
+        "name": "choco-cleaner"
       }
     ]
   },
