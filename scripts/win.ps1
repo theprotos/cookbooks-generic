@@ -122,14 +122,18 @@ new-module -name Cookbooks-Generic -scriptblock {
         New-Item -ItemType Directory -Force -ErrorAction SilentlyContinue -Path $tempdir
 
         Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Add $tempdir to Defender exclusion ... ]========    "
-        Add-MpPreference -ExclusionPath $tempdir -ErrorAction SilentlyContinue
+        Add-MpPreference -ThreatIDDefaultAction_Ids 2147749214 -ThreatIDDefaultAction_Actions Allow -Force -ErrorAction SilentlyContinue
+        Add-MpPreference -ThreatIDDefaultAction_Ids 2147685180 -ThreatIDDefaultAction_Actions Allow -Force -ErrorAction SilentlyContinue
+        Add-MpPreference -Force -ExclusionPath $tempdir -ErrorAction SilentlyContinue
 
         try {
             Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Clone $branch $repo to $tempdir ... ]========    "
             git clone $repo -b $branch --single-branch $tempdir
         }
         catch {
-            Remove-MpPreference -ExclusionPath $tempdir -ErrorAction SilentlyContinue
+            Remove-MpPreference -Force -ExclusionPath $tempdir -ErrorAction SilentlyContinue
+            Remove-MpPreference -Force -ThreatIDDefaultAction_Ids 2147749214 -ErrorAction SilentlyContinue
+            Remove-MpPreference -Force -ThreatIDDefaultAction_Ids 2147685180 -ErrorAction SilentlyContinue
             Remove-Item -force -recurse -ErrorAction SilentlyContinue $tempdir
             Write-Error "$( $_.exception.message )"
             throw $_.exception
@@ -169,7 +173,9 @@ new-module -name Cookbooks-Generic -scriptblock {
             throw $_.exception
         }
         finally {
-            Remove-MpPreference -ExclusionPath $tempdir -ErrorAction SilentlyContinue
+            Remove-MpPreference -Force -ExclusionPath $tempdir -ErrorAction SilentlyContinue
+            Remove-MpPreference -Force -ThreatIDDefaultAction_Ids 2147749214 -ErrorAction SilentlyContinue
+            Remove-MpPreference -Force -ThreatIDDefaultAction_Ids 2147685180 -ErrorAction SilentlyContinue
             Remove-Item -force -recurse -ErrorAction SilentlyContinue $tempdir
         }
     }
