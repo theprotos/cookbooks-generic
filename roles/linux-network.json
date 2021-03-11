@@ -1,0 +1,27 @@
+{
+  "name": "linux-network",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "linux-network",
+    "execute": [
+      {
+        "command": "sed -zi '/nameserver 8.8.8.8/!s/$/\\n#Added by Chef\\nnameserver 8.8.8.8\\n/' /etc/resolv.conf",
+        "description": "resolv.conf: nameserver 8.8.8.8"
+      },
+      {
+        "command": "sed -zi '/options rotate/!s/$/\\n#Added by Chef\\noptions rotate\\n/' /etc/resolv.conf",
+        "description": "resolv.conf: options rotate"
+      },
+      {
+        "command": "sed -zi '/options timeout:1/!s/$/\\n#Added by Chef\\noptions timeout:1\\n/' /etc/resolv.conf",
+        "description": "resolv.conf: options timeout:1"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[linux::exec]"
+  ]
+}

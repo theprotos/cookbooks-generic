@@ -1,5 +1,6 @@
 {
   "run_list": [
+    "role[linux-network]",
     "role[linux-pre-docker]",
     "role[linux-docker]",
     "role[linux-k8s]"

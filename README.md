@@ -44,7 +44,7 @@ chef-client -z -c config.rb -j win-wm-minimal.json
 ### Install and apply via script
 
 ```
-curl -sL https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo bash -s linux-packages.json
+curl -sL https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo bash -s apply linux-packages.json,linux-docker.json master
 ```
 
 
