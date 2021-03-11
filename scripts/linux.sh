@@ -56,7 +56,7 @@ else
 fi
 
 printf "\n$(date +%T) ==========[ Clone $branch from $repo to $tmp_dir ]==========\n"
-git clone $repo -b $branch --single-branch $tmp_dir/cookbooks-generic
+git clone --depth 1 $repo -b $branch --single-branch $tmp_dir/cookbooks-generic
 
 for rlist in $(echo $runlist | tr "," "\n")
 do

@@ -128,7 +128,7 @@ new-module -name Cookbooks-Generic -scriptblock {
 
         try {
             Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Clone $branch $repo to $tempdir ... ]========    "
-            git clone $repo -b $branch --single-branch $tempdir
+            git clone --depth 1 $repo -b $branch --single-branch $tempdir
         }
         catch {
             Remove-MpPreference -Force -ExclusionPath $tempdir -ErrorAction SilentlyContinue
