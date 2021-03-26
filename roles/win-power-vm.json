@@ -19,8 +19,8 @@
         "description": "Turn off monitor timeout on DC power"
       },
       {
-        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 600",
-        "description": "POWER DC Settings {Balanced}{Hard disk}{Turn off hard disk after}{600}"
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
+        "description": "POWER DC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
       },
       {
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
