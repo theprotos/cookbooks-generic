@@ -189,10 +189,17 @@
       {
         "name": "choco-cleaner"
       }
+    ],
+    "execute": [
+      {
+        "command": "choco-cleaner",
+        "description": "Run choco-cleaner"
+      }
     ]
   },
-  "override_attributes": { },
+  "override_attributes": {},
   "run_list": [
-    "recipe[windows::packages]"
+    "recipe[windows::packages]",
+    "recipe[windows::exec]"
   ]
 }
