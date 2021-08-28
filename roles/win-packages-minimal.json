@@ -1,0 +1,24 @@
+{
+  "name": "win-packages-minimal",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-packages-minimal",
+    "package": [
+      {
+        "name": "googlechrome"
+      },
+      {
+        "name": "vlc"
+      },
+      {
+        "name": "choco-cleaner"
+      }
+    ]
+  },
+  "override_attributes": { },
+  "run_list": [
+    "recipe[windows::packages]"
+  ]
+}
