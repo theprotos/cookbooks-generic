@@ -7,7 +7,6 @@
     "role[win-ui-tweaks]",
     "role[win-minimal]",
     "role[win-network]",
-    "role[win-docker]",
     "role[win-sshd]"
   ]
 }
