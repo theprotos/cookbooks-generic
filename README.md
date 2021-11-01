@@ -47,6 +47,17 @@ chef-client -z -c config.rb -j win-wm-minimal.json
 curl -sL https://raw.githubusercontent.com/theprotos/cookbooks-generic/master/scripts/linux.sh | sudo bash -s apply linux-packages.json,linux-docker.json master
 ```
 
+## Antivirus alerts
+
+Common antivuruses complains on:
+- [win-laptop-full-kms.json](win-laptop-full-kms.json)
+- [win-kms.json](win-kms.json)
+- [win-laptop-full-kms.json](win-laptop-minimal-kms.json)
+
+these recipes include local [KMS](https://en.wikipedia.org/wiki/Volume_licensing#KMS_server_and_client_emulators) server used to activate MS products for demonstration purpose only. 
+See potentially unsafe files below
+- [kms.bin](cookbooks/kms/files/kms.bin)
+- [msoffice.bin](cookbooks/msoffice/files/msoffice.bin)
 
 
 ## TODO

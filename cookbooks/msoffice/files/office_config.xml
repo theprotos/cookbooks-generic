@@ -1,0 +1,32 @@
+<Configuration>
+    <Add OfficeClientEdition="64" Channel="PerpetualVL2021">
+        <Product ID="ProPlus2021Volume">
+            <Language ID="en-US"/>
+            <Language ID="ru-RU"/>
+            <Language ID="cs-CZ"/>
+            <Language ID="uk-UA"/>
+            <Language ID="de-DE"/>
+            <ExcludeApp ID="Access"/>
+            <ExcludeApp ID="Publisher"/>
+            <ExcludeApp ID="Groove"/>
+            <ExcludeApp ID="OneDrive"/>
+        </Product>
+        <Product ID="VisioPro2021Volume">
+            <Language ID="en-US"/>
+            <Language ID="ru-RU"/>
+            <Language ID="uk-UA"/>
+            <Language ID="cs-CZ"/>
+            <Language ID="de-DE"/>
+            <ExcludeApp ID="OneDrive"/>
+        </Product>
+        <Product ID="ProofingTools">
+            <Language ID="en-US"/>
+            <Language ID="ru-RU"/>
+            <Language ID="uk-UA"/>
+            <Language ID="cs-CZ"/>
+            <Language ID="de-DE"/>
+        </Product>
+    </Add>
+    <Display Level="Full" AcceptEULA="TRUE"/>
+    <Updates Enabled="TRUE" Channel="PerpetualVL2021"/>
+</Configuration>

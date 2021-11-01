@@ -18,7 +18,7 @@
     ],
     "execute": [
       {
-        "command": "choco-cleaner",
+        "command": "powershell -Command \"choco-cleaner\"",
         "description": "Run choco-cleaner"
       }
     ]
