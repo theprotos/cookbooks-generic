@@ -15,10 +15,17 @@
       {
         "name": "choco-cleaner"
       }
+    ],
+    "execute": [
+      {
+        "command": "powershell -Command \"choco-cleaner\"",
+        "description": "Run choco-cleaner"
+      }
     ]
   },
   "override_attributes": { },
   "run_list": [
-    "recipe[windows::packages]"
+    "recipe[windows::packages]",
+    "recipe[windows::exec]"
   ]
 }

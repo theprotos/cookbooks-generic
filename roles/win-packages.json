@@ -25,6 +25,9 @@
         "name": "ruby"
       },
       {
+        "name": "groovy"
+      },
+      {
         "name": "pip"
       },
       {
@@ -184,15 +187,22 @@
         "name": "qbittorrent"
       },
       {
-        "name": "google-backup-and-sync"
+        "name": "googledrive"
       },
       {
         "name": "choco-cleaner"
       }
+    ],
+    "execute": [
+      {
+        "command": "powershell -Command \"choco-cleaner\"",
+        "description": "Run choco-cleaner"
+      }
     ]
   },
-  "override_attributes": { },
+  "override_attributes": {},
   "run_list": [
-    "recipe[windows::packages]"
+    "recipe[windows::packages]",
+    "recipe[windows::exec]"
   ]
 }
