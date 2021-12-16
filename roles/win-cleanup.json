@@ -1,0 +1,35 @@
+{
+  "name": "win-cleanup",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-cleanup",
+    "execute": [
+      {
+        "command": "powershell -Command \"dism /Online /Cleanup-Image /AnalyzeComponentStore\"",
+        "description": "Clean up: Stage 0"
+      },
+      {
+        "command": "powershell -Command \"dism /online /Cleanup-Image /StartComponentCleanup\"",
+        "description": "Clean up WinSxS: Stage 1"
+      },
+      {
+        "command": "powershell -Command \"dism /online /Cleanup-Image /StartComponentCleanup /ResetBase\"",
+        "description": "Clean up WinSxS: Stage 2"
+      },
+      {
+        "command": "powershell -Command \"dism /online /Cleanup-Image /SPSuperseded\"",
+        "description": "Clean up WinSxS: Stage 3"
+      },
+      {
+        "command": "powershell -Command \"cleanmgr /force full,\"",
+        "description": "Standard clean up"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}
