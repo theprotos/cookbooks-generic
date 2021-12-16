@@ -13,27 +13,6 @@
         "name": "firefox"
       },
       {
-        "name": "tor-browser"
-      },
-      {
-        "name": "python3"
-      },
-      {
-        "name": "golang"
-      },
-      {
-        "name": "ruby"
-      },
-      {
-        "name": "groovy"
-      },
-      {
-        "name": "pip"
-      },
-      {
-        "name": "curl"
-      },
-      {
         "name": "openjdk"
       },
       {
@@ -43,91 +22,13 @@
         "name": "libericajdk"
       },
       {
-        "name": "maven"
-      },
-      {
-        "name": "gradle"
-      },
-      {
-        "name": "nodejs"
-      },
-      {
-        "name": "sysinternals"
-      },
-      {
-        "name": "jetbrainstoolbox"
-      },
-      {
-        "name": "winbox"
-      },
-      {
         "name": "visualstudiocode"
-      },
-      {
-        "name": "insted"
-      },
-      {
-        "name": "wireshark"
-      },
-      {
-        "name": "fiddler"
-      },
-      {
-        "name": "ilspy"
       },
       {
         "name": "cmder"
       },
       {
         "name": "microsoft-windows-terminal"
-      },
-      {
-        "name": "nmap"
-      },
-      {
-        "name": "unetbootin"
-      },
-      {
-        "name": "veracrypt"
-      },
-      {
-        "name": "rufus"
-      },
-      {
-        "name": "vagrant"
-      },
-      {
-        "name": "packer"
-      },
-      {
-        "name": "terraform"
-      },
-      {
-        "name": "tflint"
-      },
-      {
-        "name": "aws-vault"
-      },
-      {
-        "name": "awscli"
-      },
-      {
-        "name": "azure-cli"
-      },
-      {
-        "name": "gcloudsdk"
-      },
-      {
-        "name": "vault"
-      },
-      {
-        "name": "minikube"
-      },
-      {
-        "name": "kubernetes-helm"
-      },
-      {
-        "name": "kubernetes-kompose"
       },
       {
         "name": "bleachbit"
@@ -164,24 +65,6 @@
       },
       {
         "name": "irfanviewplugins"
-      },
-      {
-        "name": "sublimetext3"
-      },
-      {
-        "name": "teamviewer"
-      },
-      {
-        "name": "keepass.install"
-      },
-      {
-        "name": "uget"
-      },
-      {
-        "name": "virtualbox"
-      },
-      {
-        "name": "virtualbox-guest-additions-guest.install"
       },
       {
         "name": "qbittorrent"

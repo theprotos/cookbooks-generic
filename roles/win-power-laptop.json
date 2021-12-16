@@ -72,11 +72,11 @@
       },
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 90",
-        "description": "POWER DC Settings {Balanced}{Display}{Display brightness}{80}"
+        "description": "POWER DC Settings {Balanced}{Display}{Display brightness}{100}"
       },
       {
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 90",
-        "description": "POWER AC Settings {Balanced}{Display}{Display brightness}{80}"
+        "description": "POWER AC Settings {Balanced}{Display}{Display brightness}{100}"
       },
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO f1fbfde2-a960-4165-9f88-50667911ce96 80",

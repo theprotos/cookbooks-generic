@@ -6,12 +6,12 @@
     "role[win-disable-telemetry]",
     "role[win-power-laptop]",
     "role[win-office]",
-    "role[win-kms]",
+    "role[win-packages]",
+    "role[win-packages-dev]",
     "role[win-services]",
     "role[win-update]",
     "role[win-network]",
     "role[win-ui-tweaks]",
-    "role[win-packages]",
-    "role[win-packages-dev]"
+    "role[win-packages]"
   ]
 }
