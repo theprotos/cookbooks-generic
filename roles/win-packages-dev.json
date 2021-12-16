@@ -1,0 +1,202 @@
+{
+  "name": "win-packages",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-packages",
+    "package": [
+      {
+        "name": "opera"
+      },
+      {
+        "name": "tor-browser"
+      },
+      {
+        "name": "python3"
+      },
+      {
+        "name": "golang"
+      },
+      {
+        "name": "ruby"
+      },
+      {
+        "name": "groovy"
+      },
+      {
+        "name": "pip"
+      },
+      {
+        "name": "curl"
+      },
+      {
+        "name": "openjdk"
+      },
+      {
+        "name": "jdk8"
+      },
+      {
+        "name": "libericajdk"
+      },
+      {
+        "name": "maven"
+      },
+      {
+        "name": "gradle"
+      },
+      {
+        "name": "nodejs"
+      },
+      {
+        "name": "sysinternals"
+      },
+      {
+        "name": "jetbrainstoolbox"
+      },
+      {
+        "name": "winbox"
+      },
+      {
+        "name": "visualstudiocode"
+      },
+      {
+        "name": "insted"
+      },
+      {
+        "name": "wireshark"
+      },
+      {
+        "name": "fiddler"
+      },
+      {
+        "name": "ilspy"
+      },
+      {
+        "name": "cmder"
+      },
+      {
+        "name": "microsoft-windows-terminal"
+      },
+      {
+        "name": "nmap"
+      },
+      {
+        "name": "unetbootin"
+      },
+      {
+        "name": "veracrypt"
+      },
+      {
+        "name": "rufus"
+      },
+      {
+        "name": "vagrant"
+      },
+      {
+        "name": "packer"
+      },
+      {
+        "name": "terraform"
+      },
+      {
+        "name": "tflint"
+      },
+      {
+        "name": "aws-vault"
+      },
+      {
+        "name": "awscli"
+      },
+      {
+        "name": "azure-cli"
+      },
+      {
+        "name": "gcloudsdk"
+      },
+      {
+        "name": "vault"
+      },
+      {
+        "name": "minikube"
+      },
+      {
+        "name": "kubernetes-helm"
+      },
+      {
+        "name": "kubernetes-kompose"
+      },
+      {
+        "name": "bleachbit"
+      },
+      {
+        "name": "crystaldiskmark"
+      },
+      {
+        "name": "windirstat"
+      },
+      {
+        "name": "7zip.install"
+      },
+      {
+        "name": "cpu-z"
+      },
+      {
+        "name": "totalcommander"
+      },
+      {
+        "name": "procexp"
+      },
+      {
+        "name": "hwinfo.install"
+      },
+      {
+        "name": "obs-studio"
+      },
+      {
+        "name": "vlc"
+      },
+      {
+        "name": "aimp"
+      },
+      {
+        "name": "irfanviewplugins"
+      },
+      {
+        "name": "teamviewer"
+      },
+      {
+        "name": "keepass.install"
+      },
+      {
+        "name": "uget"
+      },
+      {
+        "name": "virtualbox"
+      },
+      {
+        "name": "virtualbox-guest-additions-guest.install"
+      },
+      {
+        "name": "qbittorrent"
+      },
+      {
+        "name": "googledrive"
+      },
+      {
+        "name": "choco-cleaner"
+      }
+    ],
+    "execute": [
+      {
+        "command": "powershell -Command \"choco-cleaner\"",
+        "description": "Run choco-cleaner"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::packages]",
+    "recipe[windows::exec]"
+  ]
+}
