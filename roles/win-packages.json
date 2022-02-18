@@ -28,9 +28,6 @@
         "name": "cmder"
       },
       {
-        "name": "microsoft-windows-terminal"
-      },
-      {
         "name": "bleachbit"
       },
       {
@@ -74,6 +71,12 @@
       },
       {
         "name": "choco-cleaner"
+      },
+      {
+        "name": "chocolatey-core.extension"
+      },
+      {
+        "name": "chocolateygui"
       }
     ],
     "execute": [

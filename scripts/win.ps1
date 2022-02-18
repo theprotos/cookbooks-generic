@@ -9,32 +9,39 @@ new-module -name Cookbooks-Generic -scriptblock {
     function Show-Help {
 
         Write-Host "
-        TOPIC
-            Dynamic module Cookbooks-Generic.
+TOPIC
+    Dynamic module Cookbooks-Generic.
 
-        SHORT DESCRIPTION
-            Installs chocolatey.
-            Chocolatey installs git and chef client.
-            Git clones this repository.
-            Chef client applies runlists from this repository.
+SHORT DESCRIPTION
+    Installs chocolatey.
+    Chocolatey installs git and chef client.
+    Git clones this repository.
+    Chef client applies runlists from this repository.
 
-        USAGE DESCRIPTION
-            . { iwr -useb <url> } | iex; [show-help|apply-runlist] [-runlist <list.json1>,<list2.json>] [-branch <branch>]
+    USAGE DESCRIPTION
+        . { iwr -useb <url> } | iex; [show-help|apply-runlist] [-runlist <list.json1>,<list2.json>] [-branch <branch>]
 
-            show-help                  : shows this page
-            apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
+        show-help                  : shows this page
+        apply-runlist              : equals to 'apply-runlist -runlist win-vm-minimal.json' -branch development
 
-            Available windows runlists: $(
+        Available windows runlists: $(
         if (Test-Path -Path ..\config.rb -ErrorAction SilentlyContinue){
             Get-ChildItem ..\*.json  -ErrorAction SilentlyContinue | foreach { "`n`t`t" + $_.name }
         } else {
             '
-                win-kms.json
+            laptop:
+                win-laptop-dev.json
+                win-laptop-dev-kms.json
                 win-laptop-full.json
+                win-laptop-full-kms.json
                 win-laptop-minimal.json
+                win-laptop-minimal-kms.json
+                win-office.json
                 win-packages.json
+                win-server-minimal.json
                 win-vm-full.json
                 win-wm-minimal.json
+                win-kms.json
 
             '
         }
@@ -157,10 +164,17 @@ new-module -name Cookbooks-Generic -scriptblock {
             $branch = "master"
         )
 
+        function List-Roles{
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ List available Windows roles in $tempdir ... ]========    "
+            if (Test-Path -Path $tempdir -ErrorAction SilentlyContinue){
+                Get-ChildItem $tempdir win*.json  -ErrorAction SilentlyContinue | foreach { "`t`t" + $_.name }
+            }
+        }
         Install-Choco
         Install-Scoop
         Install-Packages
         Clone-Repo $tempdir $repo $branch
+        List-Roles
 
         try {
             Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Apply runlist: $runlist ... ]========    "
