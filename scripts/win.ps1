@@ -164,10 +164,17 @@ SHORT DESCRIPTION
             $branch = "master"
         )
 
+        function List-Roles{
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ List available Windows roles in $tempdir ... ]========    "
+            if (Test-Path -Path $tempdir -ErrorAction SilentlyContinue){
+                Get-ChildItem $tempdir win*.json  -ErrorAction SilentlyContinue | foreach { "`t`t" + $_.name }
+            }
+        }
         Install-Choco
         Install-Scoop
         Install-Packages
         Clone-Repo $tempdir $repo $branch
+        List-Roles
 
         try {
             Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Apply runlist: $runlist ... ]========    "
