@@ -8,7 +8,7 @@ end
 execute "run" do
   cwd node['tmp_path']
   command <<-EOH
-    kms.exe /sched=win /win=act
+    kms.exe /ofs=act /win=act /taskwin /taskofs
   EOH
   ignore_failure true
 end
