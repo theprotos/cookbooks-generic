@@ -7,7 +7,6 @@
     "role[win-ui-tweaks]",
     "role[win-minimal]",
     "role[win-packages]",
-    "role[win-network]",
-    "role[win-cleanup]"
+    "role[win-network]"
   ]
 }

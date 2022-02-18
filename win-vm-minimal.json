@@ -6,7 +6,6 @@
     "role[win-update]",
     "role[win-ui-tweaks]",
     "role[win-minimal]",
-    "role[win-network]",
-    "role[win-cleanup]"
+    "role[win-network]"
   ]
 }
