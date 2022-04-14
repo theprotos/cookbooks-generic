@@ -29,19 +29,29 @@ SHORT DESCRIPTION
             Get-ChildItem ..\*.json  -ErrorAction SilentlyContinue | foreach { "`n`t`t" + $_.name }
         } else {
             '
-            laptop:
-                win-laptop-dev.json
-                win-laptop-dev-kms.json
-                win-laptop-full.json
-                win-laptop-full-kms.json
-                win-laptop-minimal.json
-                win-laptop-minimal-kms.json
-                win-office.json
-                win-packages.json
-                win-server-minimal.json
-                win-vm-full.json
-                win-wm-minimal.json
-                win-kms.json
+            Windows laptop:
+                win-laptop-dev.json         : install dev packages, MS Office, power usage setting
+                win-laptop-dev-kms.json     : the same as above plus activate Windows and MS Office
+                win-laptop-full.json        : install packages, MS Office, power usage setting
+                win-laptop-full-kms.json    : the same as above plus activate Windows and MS Office
+                win-laptop-minimal.json     : power usage setting
+                win-laptop-minimal-kms.json : the same as above plus activate Windows and MS Office
+            Windows:
+                win-cleanup.json            : description
+                win-office.json             : description
+                win-packages.json           : description
+                win-server-minimal.json     : description
+                win-sshd.json               : description
+                win-kms.json                : description
+            Windows VM:
+                win-vm-dev.json             : description
+                win-vm-full.json            : description
+                win-wm-minimal.json         : description
+            Linux:
+                linux-cloud.json
+                linux-docker.json
+                linux-k8s.json
+                linux-motd.json
 
             '
         }
