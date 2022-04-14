@@ -7,8 +7,12 @@
     "debug_logger": "win-cleanup",
     "execute": [
       {
+        "command": "powershell -Command \"choco-cleaner\"",
+        "description": "Run choco-cleaner"
+      },
+      {
         "command": "powershell -Command \"dism /Online /Cleanup-Image /AnalyzeComponentStore\"",
-        "description": "Clean up: Stage 0"
+        "description": "Clean up: Stage 0 .. 15 min"
       },
       {
         "command": "powershell -Command \"dism /online /Cleanup-Image /StartComponentCleanup\"",

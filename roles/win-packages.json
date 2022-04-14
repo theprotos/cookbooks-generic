@@ -78,12 +78,6 @@
       {
         "name": "chocolateygui"
       }
-    ],
-    "execute": [
-      {
-        "command": "powershell -Command \"choco-cleaner\"",
-        "description": "Run choco-cleaner"
-      }
     ]
   },
   "override_attributes": {},

@@ -16,5 +16,5 @@ default['services'] = [{"name" => "lfsvc",           "startup_type" => "manual"}
                       {"name" => "bthserv",         "startup_type" => "manual"},
                       {"name" => "WMPNetworkSvc",   "startup_type" => "manual"}]
 
-default['execute'] = [{"command" => "powercfg -setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
-                       "description" => "Set high performance power profile"}]
+default['execute'] = [{"command" => "dir",
+                       "description" => "empty"}]
