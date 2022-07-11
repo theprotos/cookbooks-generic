@@ -49,6 +49,9 @@
         "name": "nodejs"
       },
       {
+        "name": "nvm"
+      },
+      {
         "name": "sysinternals"
       },
       {
@@ -58,7 +61,7 @@
         "name": "winbox"
       },
       {
-        "name": "visualstudiocode"
+        "name": "vscode"
       },
       {
         "name": "insted"

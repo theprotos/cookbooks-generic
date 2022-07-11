@@ -1,7 +1,7 @@
 default['debug_logger'] = 'windows-attributes-file'
 
 default['package'] = [{"name" => "python3",           "action" => "upgrade"},
-                      {"name" => "visualstudiocode",  "action" => "upgrade"},
+                      {"name" => "vscode",            "action" => "upgrade"},
                       {"name" => "7zip",              "action" => "upgrade"}]
 
 default['services'] = [{"name" => "lfsvc",           "startup_type" => "manual"},

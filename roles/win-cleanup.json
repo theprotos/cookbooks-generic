@@ -11,23 +11,15 @@
         "description": "Run choco-cleaner"
       },
       {
-        "command": "powershell -Command \"dism /Online /Cleanup-Image /AnalyzeComponentStore\"",
-        "description": "Clean up: Stage 0 .. 15 min"
-      },
-      {
-        "command": "powershell -Command \"dism /online /Cleanup-Image /StartComponentCleanup\"",
-        "description": "Clean up WinSxS: Stage 1"
-      },
-      {
         "command": "powershell -Command \"dism /online /Cleanup-Image /StartComponentCleanup /ResetBase\"",
-        "description": "Clean up WinSxS: Stage 2"
+        "description": "Clean up WinSxS: Removes all superseded versions of every component in the component store >20 min"
       },
       {
         "command": "powershell -Command \"dism /online /Cleanup-Image /SPSuperseded\"",
-        "description": "Clean up WinSxS: Stage 3"
+        "description": "Clean up WinSxS: Reduces the amount of space used by a Service Pack >20 min"
       },
       {
-        "command": "powershell -Command \"cleanmgr /force full,\"",
+        "command": "powershell -Command \"cleanmgr /force full\"",
         "description": "Standard clean up"
       }
     ]

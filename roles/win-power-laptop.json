@@ -31,12 +31,12 @@
         "description": "POWER AC Settings {Balanced}{Sleep}{Allow hybrid sleep}{off}"
       },
       {
-        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 3000",
-        "description": "POWER DC Settings {Balanced}{Sleep}{Hibernate after}{3000}"
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 1800",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Hibernate after}{30min}"
       },
       {
-        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 5000",
-        "description": "POWER AC Settings {Balanced}{Sleep}{Hibernate after}{5000}"
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 3600",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Hibernate after}{60min}"
       },
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_BUTTONS LIDACTION 002",

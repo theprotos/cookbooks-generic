@@ -1,5 +1,5 @@
 execute 'run cleanmgr' do
-  command 'C:\Windows\System32\cleanmgr.exe /sagerun:10﻿'
+  command 'C:\Windows\System32\cleanmgr.exe /sagerun:10?'
   ignore_failure true
   only_if { node['kernel']['product_type'] == 'Workstaton' } # cleanmgr isn't on servers
 end
