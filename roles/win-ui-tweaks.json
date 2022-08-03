@@ -162,14 +162,14 @@
       },
       {
         "description": "Windows 11 Taskbar: Remove Chat from the Taskbar",
-        "path": "KEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "name": "TaskbarMn",
         "type": "dword",
         "data": "00000000"
       },
       {
         "description": "Windows 11 Taskbar: Remove Widgets from the Taskbar",
-        "path": "KEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
         "name": "TaskbarDa",
         "type": "dword",
         "data": "00000000"

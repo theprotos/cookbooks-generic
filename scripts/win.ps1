@@ -76,7 +76,7 @@ SHORT DESCRIPTION
         .Description
         #>
         try {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ POWERSHELL: Install chocolatey... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ POWERSHELL: Install chocolatey... ]==="
             Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
         }
         catch {
@@ -90,7 +90,7 @@ SHORT DESCRIPTION
         .Description
         #>
         try {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ POWERSHELL: Install chocolatey... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ POWERSHELL: Install chocolatey... ]==="
             # Set-ExecutionPolicy RemoteSigned -scope CurrentUser
             invoke-expression 'cmd /c start powershell -Command { Set-ExecutionPolicy Bypass -Scope Process -Force; iwr -useb get.scoop.sh | iex }'
         }
@@ -102,7 +102,7 @@ SHORT DESCRIPTION
 
     function Install-Packages {
         try {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ CHOCO: Install git... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ CHOCO: Install git... ]==="
             choco install -y --no-progress git
         }
         catch {
@@ -111,11 +111,11 @@ SHORT DESCRIPTION
         }
 
         try {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ CHOCO: Install chef-client... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ CHOCO: Install chef-client... ]==="
             choco install -y --no-progress chef-client
         }
         catch {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ POWERSHELL: install chef-client from alternative... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ POWERSHELL: install chef-client from alternative... ]==="
             . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install
         }
 
@@ -135,16 +135,16 @@ SHORT DESCRIPTION
             $branch
         )
 
-        Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Create $tempdir ... ]========    "
+        Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ Create $tempdir ... ]==="
         New-Item -ItemType Directory -Force -ErrorAction SilentlyContinue -Path $tempdir
 
-        Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Add $tempdir to Defender exclusion ... ]========    "
+        Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ Add dir $tempdir to Defender exclusion ... ]==="
         Add-MpPreference -ThreatIDDefaultAction_Ids 2147749214 -ThreatIDDefaultAction_Actions Allow -Force -ErrorAction SilentlyContinue
         Add-MpPreference -ThreatIDDefaultAction_Ids 2147685180 -ThreatIDDefaultAction_Actions Allow -Force -ErrorAction SilentlyContinue
         Add-MpPreference -Force -ExclusionPath $tempdir -ErrorAction SilentlyContinue
 
         try {
-            Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Clone $branch $repo to $tempdir ... ]========    "
+            Write-Host "`n$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ Clone $branch $repo to $tempdir ... ]==="
             git clone --depth 1 $repo -b $branch --single-branch $tempdir
         }
         catch {
@@ -175,7 +175,7 @@ SHORT DESCRIPTION
         )
 
         function List-Roles{
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ List available Windows roles in $tempdir ... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ List available Windows roles in $tempdir ... ]==="
             if (Test-Path -Path $tempdir -ErrorAction SilentlyContinue){
                 Get-ChildItem $tempdir win*.json  -ErrorAction SilentlyContinue | foreach { "`t`t" + $_.name }
             }
@@ -187,7 +187,7 @@ SHORT DESCRIPTION
         List-Roles
 
         try {
-            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ========[ Apply runlist: $runlist ... ]========    "
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ Apply runlist: $runlist ... ]==="
             $runlist | % {chef-client -z -c $tempdir\config.rb -j $tempdir\$_}
             #chef-client -z -c "$tempdir\config.rb" -o ‘recipe[my-cookbook::my-recipe]’
         }
@@ -197,6 +197,7 @@ SHORT DESCRIPTION
             throw $_.exception
         }
         finally {
+            Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ Remove Defender exceptions and $tempdir ]==="
             Remove-MpPreference -Force -ExclusionPath $tempdir -ErrorAction SilentlyContinue
             Remove-MpPreference -Force -ThreatIDDefaultAction_Ids 2147749214 -ErrorAction SilentlyContinue
             Remove-MpPreference -Force -ThreatIDDefaultAction_Ids 2147685180 -ErrorAction SilentlyContinue
