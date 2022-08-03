@@ -7,10 +7,6 @@
     "debug_logger": "win-cleanup",
     "execute": [
       {
-        "command": "powershell -Command \"choco-cleaner\"",
-        "description": "Run choco-cleaner"
-      },
-      {
         "command": "powershell -Command \"dism /online /Cleanup-Image /StartComponentCleanup /ResetBase\"",
         "description": "Clean up WinSxS: Removes all superseded versions of every component in the component store >20 min"
       },
