@@ -118,6 +118,12 @@
         "name": "vault"
       },
       {
+        "name": "virtualbox"
+      },
+      {
+        "name": "virtualbox-guest-additions-guest.install"
+      },
+      {
         "name": "minikube"
       },
       {
@@ -179,12 +185,6 @@
       },
       {
         "name": "uget"
-      },
-      {
-        "name": "virtualbox"
-      },
-      {
-        "name": "virtualbox-guest-additions-guest.install"
       },
       {
         "name": "qbittorrent"

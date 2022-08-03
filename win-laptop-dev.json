@@ -12,6 +12,6 @@
     "role[win-update]",
     "role[win-network]",
     "role[win-ui-tweaks]",
-    "role[win-wls]"
+    "role[win-wsl]"
   ]
 }

@@ -1,10 +1,10 @@
 {
-  "name": "win-wls",
+  "name": "win-wsl",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "description": "",
   "default_attributes": {
-    "debug_logger": "win-wls",
+    "debug_logger": "win-wsl",
     "execute": [
       {
         "command": "powershell -Command \"if ([System.Environment]::OSVersion.Version.Major -eq 11) {wsl --install}\"",

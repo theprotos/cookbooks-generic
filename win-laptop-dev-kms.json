@@ -13,6 +13,6 @@
     "role[win-ui-tweaks]",
     "role[win-packages]",
     "role[win-packages-dev]",
-    "role[win-wls]"
+    "role[win-wsl]"
   ]
 }
