@@ -130,6 +130,15 @@
         "name": "kubernetes-kompose"
       },
       {
+        "name": "postman"
+      },
+      {
+        "name": "rancher-desktop"
+      },
+      {
+        "name": "docker-desktop"
+      },
+      {
         "name": "bleachbit"
       },
       {
