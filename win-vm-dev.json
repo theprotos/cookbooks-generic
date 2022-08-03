@@ -8,6 +8,7 @@
     "role[win-minimal]",
     "role[win-packages]",
     "role[win-packages-dev]",
-    "role[win-network]"
+    "role[win-network]",
+    "role[win-wls]"
   ]
 }

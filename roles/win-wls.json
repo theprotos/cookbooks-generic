@@ -1,0 +1,19 @@
+{
+  "name": "win-wls",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-wls",
+    "execute": [
+      {
+        "command": "powershell -Command \"if ([System.Environment]::OSVersion.Version.Major -eq 11) {wsl --install}\"",
+        "description": "Windows 11: Install WSL2"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}
