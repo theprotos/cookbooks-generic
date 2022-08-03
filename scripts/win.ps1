@@ -38,20 +38,20 @@ SHORT DESCRIPTION
                 win-laptop-minimal-kms.json : the same as above plus activate Windows and MS Office
             Windows:
                 win-cleanup.json            : description
-                win-office.json             : description
+                win-office.json             : install MS Office 2019
                 win-packages.json           : description
                 win-server-minimal.json     : description
                 win-sshd.json               : description
-                win-kms.json                : description
+                win-kms.json                : install KMS and active Windows and MS Office
             Windows VM:
-                win-vm-dev.json             : description
-                win-vm-full.json            : description
+                win-vm-dev.json             : install dev packages, MS Office, power usage setting
+                win-vm-full.json            : the same as above plus activate Windows and MS Office
                 win-wm-minimal.json         : description
             Linux:
-                linux-cloud.json
-                linux-docker.json
-                linux-k8s.json
-                linux-motd.json
+                linux-cloud.json            : description
+                linux-docker.json           : description
+                linux-k8s.json              : description
+                linux-motd.json             : description
 
             '
         }
