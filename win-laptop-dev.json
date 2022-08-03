@@ -12,7 +12,6 @@
     "role[win-update]",
     "role[win-network]",
     "role[win-ui-tweaks]",
-    "role[win-packages]",
     "role[win-wls]"
   ]
 }
