@@ -115,6 +115,7 @@
   },
   "override_attributes": {},
   "run_list": [
-    "recipe[windows::exec]"
+    "recipe[windows::exec]",
+    "recipe[windows::registry]"
   ]
 }

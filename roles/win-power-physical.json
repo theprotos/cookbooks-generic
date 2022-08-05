@@ -11,9 +11,10 @@
         "description": "POWER Settings {High Performance}"
       },
       {
-        "command": "powercfg.exe /hibernate on",
-        "description": "Turn on Hibernation"
-      },{
+        "command": "powercfg /hibernate on",
+        "description": "POWER Settings {Hibernate}{on}"
+      },
+      {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP STANDBYIDLE 0",
         "description": "POWER DC Settings {Balanced}{Sleep}{Sleep after}{0/0}"
       },
@@ -53,10 +54,20 @@
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
         "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
       }
+    ],
+    "registry": [
+      {
+        "description": "Windows 11: Enable Hibernate",
+        "path": "KEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Power",
+        "name": "HibernateEnableDefault",
+        "type": "dword",
+        "data": "1"
+      }
     ]
   },
   "override_attributes": {},
   "run_list": [
-    "recipe[windows::exec]"
+    "recipe[windows::exec]",
+    "recipe[windows::registry]"
   ]
 }
