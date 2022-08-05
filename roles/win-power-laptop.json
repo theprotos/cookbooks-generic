@@ -102,6 +102,15 @@
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
         "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
       }
+    ],
+    "registry": [
+      {
+        "description": "Windows 11: Enable Hibernate",
+        "path": "KEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Power",
+        "name": "HibernateEnableDefault",
+        "type": "dword",
+        "data": "1"
+      }
     ]
   },
   "override_attributes": {},
