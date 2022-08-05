@@ -107,7 +107,7 @@
       {
         "description": "Windows 11: Enable Hibernate",
         "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Power",
-        "name": "HibernateEnableDefault",
+        "name": "HibernateEnabledDefault",
         "type": "dword",
         "data": "1"
       }
