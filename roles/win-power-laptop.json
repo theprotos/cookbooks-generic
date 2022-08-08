@@ -110,6 +110,20 @@
         "name": "HibernateEnabledDefault",
         "type": "dword",
         "data": "1"
+      },
+      {
+        "description": "Windows 11: Enable Hibernate",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+        "name": "ShowHibernateOption",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Windows 11: Disable Sleep",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+        "name": "ShowSleepOption",
+        "type": "dword",
+        "data": "0"
       }
     ]
   },
