@@ -157,6 +157,17 @@ SHORT DESCRIPTION
         }
     }
 
+    function Show-Hints {
+        <#
+        .Description
+        #>
+        param(
+            [string] $tempdir
+        )
+
+        Start-Process notepad "$tempdir\docs\win_apps.md"
+    }
+
     function Apply-RunList {
         <#
         .Description
@@ -185,6 +196,7 @@ SHORT DESCRIPTION
         Install-Packages
         Clone-Repo $tempdir $repo $branch
         List-Roles
+        Show-Hints $tempdir
 
         try {
             Write-Host "$( Get-Date -Format 'yyyy-MM-dd HH:mm' ) ===[ Apply runlist: $runlist ... ]==="
