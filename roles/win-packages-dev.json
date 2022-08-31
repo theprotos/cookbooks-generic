@@ -198,6 +198,12 @@
       {
         "name": "choco-cleaner"
       }
+    ],
+    "execute": [
+      {
+        "command": "pip install --user pipenv",
+        "description": "Python virtual env"
+      }
     ]
   },
   "override_attributes": {},
