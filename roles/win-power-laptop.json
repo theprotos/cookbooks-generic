@@ -71,6 +71,14 @@
         "description": "POWER AC Settings {Balanced}{Display}{Turn off display after}{900}"
       },
       {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOCONLOCK 120",
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off locled display after}{120}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOCONLOCK 60",
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off locked display after}{60}"
+      },
+      {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 90",
         "description": "POWER DC Settings {Balanced}{Display}{Display brightness}{100}"
       },
@@ -101,7 +109,16 @@
       {
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
         "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
+        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
+        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
       }
+
     ],
     "registry": [
       {

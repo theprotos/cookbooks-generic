@@ -187,6 +187,20 @@
         "name": "SearchboxTaskbarMode",
         "type": "dword",
         "data": "00000000"
+      },
+      {
+        "description": "Windows 11 Taskbar: Disable startup sound",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI\\BootAnimation",
+        "name": "DisableStartupSound",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Windows Restore apps after system restart",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+        "name": "RestartApps",
+        "type": "dword",
+        "data": "1"
       }
     ]
   },

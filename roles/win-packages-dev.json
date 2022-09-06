@@ -197,6 +197,9 @@
       },
       {
         "name": "choco-cleaner"
+      },
+      {
+        "name": "chef-workstation"
       }
     ],
     "execute": [
