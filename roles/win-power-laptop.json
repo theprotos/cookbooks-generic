@@ -112,13 +112,12 @@
       },
       {
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
-        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+        "description": "POWER AC Settings Sign in after sleep"
       },
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
-        "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+        "description": "POWER AC Settings Sign in after sleep"
       }
-
     ],
     "registry": [
       {

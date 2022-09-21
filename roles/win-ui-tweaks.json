@@ -193,14 +193,28 @@
         "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI\\BootAnimation",
         "name": "DisableStartupSound",
         "type": "dword",
-        "data": "1"
+        "data": "0"
       },
       {
         "description": "Windows Restore apps after system restart",
         "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
         "name": "RestartApps",
         "type": "dword",
-        "data": "1"
+        "data": "00000001"
+      },
+      {
+        "description": "Windows 11 screen lock settings",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerSettings\\7516b95f-f776-4464-8c53-06167f40cc99\\8ec4b3a5-6868-48c2-be75-4f3044be88a7",
+        "name": "Attributes",
+        "type": "dword",
+        "data": "2"
+      },
+      {
+        "description": "Windows 11 screen lock settings",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\PolicyManager\\default\\Settings\\AllowSignInOptions",
+        "name": "Value",
+        "type": "dword",
+        "data": "0"
       }
     ]
   },
