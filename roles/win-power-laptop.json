@@ -117,6 +117,10 @@
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
         "description": "POWER AC Settings Sign in after sleep"
+      },
+      {
+        "command": "powercfg -attributes SUB_BUTTONS 99ff10e7-23b1-4c07-a9d1-5c3206d741b4 -ATTRIB_HIDE",
+        "description": "LID open actions"
       }
     ],
     "registry": [
@@ -138,6 +142,13 @@
         "description": "Windows 11: Disable Sleep",
         "path": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
         "name": "ShowSleepOption",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Windows 11: Disable Fast Startup",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+        "name": "HiberbootEnabled",
         "type": "dword",
         "data": "0"
       }
