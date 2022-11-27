@@ -7,7 +7,7 @@
     "debug_logger": "win-packages",
     "package": [
       {
-        "name": "opera"
+        "name": "vivaldi"
       },
       {
         "name": "tor-browser"
@@ -197,9 +197,6 @@
       },
       {
         "name": "choco-cleaner"
-      },
-      {
-        "name": "chef-workstation"
       }
     ],
     "execute": [

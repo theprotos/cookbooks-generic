@@ -1,0 +1,16 @@
+{
+  "run_list": [
+    "role[win-cortana]",
+    "role[win-location]",
+    "role[win-disable-onedrive]",
+    "role[win-disable-telemetry]",
+    "role[win-power-laptop]",
+    "role[win-office]",
+    "role[win-packages]",
+    "role[win-services]",
+    "role[win-update]",
+    "role[win-network]",
+    "role[win-ui-tweaks]",
+    "role[win-packages]"
+  ]
+}
