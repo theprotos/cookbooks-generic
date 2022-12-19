@@ -98,9 +98,16 @@
         "data": "1"
       },
       {
-        "description": "Always show icons and notifications on the taskbar",
+        "description": "Windows 10: Always show icons and notifications on the taskbar",
         "path": "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer",
         "name": "EnableAutoTray",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Windows 11: Always show icons and notifications on the taskbar",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer",
+        "name": "NoTrayItemsDisplay",
         "type": "dword",
         "data": "0"
       },
@@ -150,6 +157,62 @@
         "description": "Disable Windows Game Recording",
         "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\GameDVR",
         "name": "HistoricalCaptureEnabled",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Windows 11 Taskbar: Start button alignment",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "name": "TaskbarAl",
+        "type": "dword",
+        "data": "00000000"
+      },
+      {
+        "description": "Windows 11 Taskbar: Remove Chat from the Taskbar",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "name": "TaskbarMn",
+        "type": "dword",
+        "data": "00000000"
+      },
+      {
+        "description": "Windows 11 Taskbar: Remove Widgets from the Taskbar",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced",
+        "name": "TaskbarDa",
+        "type": "dword",
+        "data": "00000000"
+      },
+      {
+        "description": "Windows 11 Taskbar: Removes search from the Taskbar",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Search",
+        "name": "SearchboxTaskbarMode",
+        "type": "dword",
+        "data": "00000000"
+      },
+      {
+        "description": "Windows 11 Taskbar: Disable startup sound",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Authentication\\LogonUI\\BootAnimation",
+        "name": "DisableStartupSound",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Windows Restore apps after system restart",
+        "path": "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon",
+        "name": "RestartApps",
+        "type": "dword",
+        "data": "00000001"
+      },
+      {
+        "description": "Windows 11 screen lock settings",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerSettings\\7516b95f-f776-4464-8c53-06167f40cc99\\8ec4b3a5-6868-48c2-be75-4f3044be88a7",
+        "name": "Attributes",
+        "type": "dword",
+        "data": "2"
+      },
+      {
+        "description": "Windows 11 screen lock settings",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\PolicyManager\\default\\Settings\\AllowSignInOptions",
+        "name": "Value",
         "type": "dword",
         "data": "0"
       }

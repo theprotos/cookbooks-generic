@@ -31,12 +31,12 @@
         "description": "POWER AC Settings {Balanced}{Sleep}{Allow hybrid sleep}{off}"
       },
       {
-        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 3000",
-        "description": "POWER DC Settings {Balanced}{Sleep}{Hibernate after}{3000}"
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 1800",
+        "description": "POWER DC Settings {Balanced}{Sleep}{Hibernate after}{30min}"
       },
       {
-        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 5000",
-        "description": "POWER AC Settings {Balanced}{Sleep}{Hibernate after}{5000}"
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_SLEEP HIBERNATEIDLE 3600",
+        "description": "POWER AC Settings {Balanced}{Sleep}{Hibernate after}{60min}"
       },
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_BUTTONS LIDACTION 002",
@@ -71,6 +71,14 @@
         "description": "POWER AC Settings {Balanced}{Display}{Turn off display after}{900}"
       },
       {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOCONLOCK 120",
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off locled display after}{120}"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOCONLOCK 60",
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off locked display after}{60}"
+      },
+      {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO aded5e82-b909-4619-9949-f5d71dac0bcb 90",
         "description": "POWER DC Settings {Balanced}{Display}{Display brightness}{100}"
       },
@@ -101,11 +109,54 @@
       {
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_DISK DISKIDLE 0",
         "description": "POWER AC Settings {Balanced}{Hard disk}{Turn off hard disk after}{0}"
+      },
+      {
+        "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
+        "description": "POWER AC Settings Sign in after sleep"
+      },
+      {
+        "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_NONE CONSOLELOCK 1",
+        "description": "POWER AC Settings Sign in after sleep"
+      },
+      {
+        "command": "powercfg -attributes SUB_BUTTONS 99ff10e7-23b1-4c07-a9d1-5c3206d741b4 -ATTRIB_HIDE",
+        "description": "LID open actions"
+      }
+    ],
+    "registry": [
+      {
+        "description": "Windows 11: Enable Hibernate",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Power",
+        "name": "HibernateEnabledDefault",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Windows 11: Enable Hibernate",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+        "name": "ShowHibernateOption",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "Windows 11: Disable Sleep",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FlyoutMenuSettings",
+        "name": "ShowSleepOption",
+        "type": "dword",
+        "data": "0"
+      },
+      {
+        "description": "Windows 11: Disable Fast Startup",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power",
+        "name": "HiberbootEnabled",
+        "type": "dword",
+        "data": "0"
       }
     ]
   },
   "override_attributes": {},
   "run_list": [
-    "recipe[windows::exec]"
+    "recipe[windows::exec]",
+    "recipe[windows::registry]"
   ]
 }

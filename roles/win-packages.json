@@ -22,7 +22,7 @@
         "name": "libericajdk"
       },
       {
-        "name": "visualstudiocode"
+        "name": "vscode"
       },
       {
         "name": "cmder"
@@ -37,7 +37,7 @@
         "name": "windirstat"
       },
       {
-        "name": "7zip.install"
+        "name": "7zip"
       },
       {
         "name": "cpu-z"
@@ -62,6 +62,9 @@
       },
       {
         "name": "irfanviewplugins"
+      },
+      {
+        "name": "ghostscript"
       },
       {
         "name": "qbittorrent"

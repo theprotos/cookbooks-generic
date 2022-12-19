@@ -19,6 +19,13 @@
         "name": "AllowMUUpdateService",
         "type": "dword",
         "data": "1"
+      },
+      {
+        "description": "Detailed enhanced notification messages",
+        "path": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
+        "name": "EnableFeaturedSoftware",
+        "type": "dword",
+        "data": "1"
       }
     ]
   },

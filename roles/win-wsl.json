@@ -1,0 +1,27 @@
+{
+  "name": "win-wsl",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-wsl",
+    "execute": [
+      {
+        "command": "powershell -Command \"if ([System.Environment]::OSVersion.Version.Major -eq 11) {wsl --install}\"",
+        "description": "Windows 11: Install WSL2"
+      },
+      {
+        "command": "powershell -Command \"if ([System.Environment]::OSVersion.Version.Major -eq 11) {wsl --set-default-version 2}\"",
+        "description": "Windows 11: Set default WSL2"
+      },
+      {
+        "command": "powershell -Command \"if ([System.Environment]::OSVersion.Version.Major -eq 11) {wsl --install -d Ubuntu}\"",
+        "description": "Windows 11: WSL2 install ubuntu"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}

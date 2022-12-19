@@ -7,7 +7,7 @@
     "debug_logger": "win-packages",
     "package": [
       {
-        "name": "opera"
+        "name": "vivaldi"
       },
       {
         "name": "tor-browser"
@@ -49,6 +49,9 @@
         "name": "nodejs"
       },
       {
+        "name": "nvm"
+      },
+      {
         "name": "sysinternals"
       },
       {
@@ -58,7 +61,7 @@
         "name": "winbox"
       },
       {
-        "name": "visualstudiocode"
+        "name": "vscode"
       },
       {
         "name": "insted"
@@ -74,9 +77,6 @@
       },
       {
         "name": "cmder"
-      },
-      {
-        "name": "microsoft-windows-terminal"
       },
       {
         "name": "nmap"
@@ -118,6 +118,12 @@
         "name": "vault"
       },
       {
+        "name": "virtualbox"
+      },
+      {
+        "name": "virtualbox-guest-additions-guest.install"
+      },
+      {
         "name": "minikube"
       },
       {
@@ -125,6 +131,15 @@
       },
       {
         "name": "kubernetes-kompose"
+      },
+      {
+        "name": "postman"
+      },
+      {
+        "name": "rancher-desktop"
+      },
+      {
+        "name": "docker-desktop"
       },
       {
         "name": "bleachbit"
@@ -163,6 +178,9 @@
         "name": "irfanviewplugins"
       },
       {
+        "name": "ghostscript"
+      },
+      {
         "name": "teamviewer"
       },
       {
@@ -170,12 +188,6 @@
       },
       {
         "name": "uget"
-      },
-      {
-        "name": "virtualbox"
-      },
-      {
-        "name": "virtualbox-guest-additions-guest.install"
       },
       {
         "name": "qbittorrent"
@@ -189,14 +201,13 @@
     ],
     "execute": [
       {
-        "command": "powershell -Command \"choco-cleaner\"",
-        "description": "Run choco-cleaner"
+        "command": "pip install --user pipenv",
+        "description": "Python virtual env"
       }
     ]
   },
   "override_attributes": {},
   "run_list": [
-    "recipe[windows::packages]",
-    "recipe[windows::exec]"
+    "recipe[windows::packages]"
   ]
 }
