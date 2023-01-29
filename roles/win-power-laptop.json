@@ -72,7 +72,7 @@
       },
       {
         "command": "powercfg -setACvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOCONLOCK 120",
-        "description": "POWER AC Settings {Balanced}{Display}{Turn off locled display after}{120}"
+        "description": "POWER AC Settings {Balanced}{Display}{Turn off locked display after}{120}"
       },
       {
         "command": "powercfg -setDCvalueindex SCHEME_BALANCED SUB_VIDEO VIDEOCONLOCK 60",

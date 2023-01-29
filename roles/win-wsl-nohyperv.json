@@ -1,5 +1,5 @@
 {
-  "name": "win-wsl",
+  "name": "win-wsl-nohyperv",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "description": "",
@@ -9,6 +9,14 @@
       {
         "command": "powershell -Command \"if ((Get-ComputerInfo | Select-Object -expand OsName) -match 11) {wsl --install}\"",
         "description": "Windows 11: Install WSL2"
+      },
+      {
+        "command": "powershell -Command \"Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All\"",
+        "description": "Windows 11: Disable Hyper-V"
+      },
+      {
+        "command": "powershell -Command \"bcdedit /set hypervisorlaunchtype off\"",
+        "description": "Windows 11: Disable Hyper-V"
       },
       {
         "command": "powershell -Command \"if ((Get-ComputerInfo | Select-Object -expand OsName) -match 11) {wsl --set-default-version 2}\"",

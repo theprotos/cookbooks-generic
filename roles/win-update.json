@@ -14,7 +14,7 @@
         "data": "3"
       },
       {
-        "description": "WINDOWS 11: Allow updates for other Microsoft products installed",
+        "description": "WINDOWS 11: Allow recommended updates",
         "path": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
         "name": "IncludeRecommendedUpdates",
         "type": "dword",
@@ -24,6 +24,13 @@
         "description": "Allow updates for other Microsoft products installed",
         "path": "HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU",
         "name": "AllowMUUpdateService",
+        "type": "dword",
+        "data": "1"
+      },
+      {
+        "description": "WINDOWS 11: Allow updates for other Microsoft products installed",
+        "path": "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WindowsUpdate\\Services\\7971F918-A847-4430-9279-4A52D1EFE18D",
+        "name": "RegisteredWithAU",
         "type": "dword",
         "data": "1"
       },

@@ -71,3 +71,4 @@ See potentially unsafe files below
 ## TODO
 
 - Reuse https://github.com/W4RH4WK/Debloat-Windows-10
+- OS condition for registry modifications

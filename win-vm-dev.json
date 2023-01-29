@@ -9,6 +9,6 @@
     "role[win-packages]",
     "role[win-packages-dev]",
     "role[win-network]",
-    "role[win-wsl]"
+    "role[win-wsl-nohyperv]"
   ]
 }
