@@ -60,6 +60,14 @@ See potentially unsafe files below
 - [msoffice.bin](cookbooks/msoffice/files/msoffice.bin)
 
 
+
+## Notes
+
+- choco-cleaner
+  do not use because it cleans uninstallers - not able to update app in the future
+
+
+
 ## TODO
 
 - Reuse https://github.com/W4RH4WK/Debloat-Windows-10

@@ -2,7 +2,8 @@ default['debug_logger'] = 'windows-attributes-file'
 
 default['package'] = [{"name" => "python3",           "action" => "upgrade"},
                       {"name" => "vscode",            "action" => "upgrade"},
-                      {"name" => "7zip",              "action" => "upgrade"}]
+                      {"name" => "7zip",              "action" => "upgrade"},
+			          {"name" => "avastfreeantivirus" "action" => "upgrade"}]
 
 default['services'] = [{"name" => "lfsvc",           "startup_type" => "manual"},
                       {"name" => "CscService",      "startup_type" => "manual"},
@@ -16,5 +17,5 @@ default['services'] = [{"name" => "lfsvc",           "startup_type" => "manual"}
                       {"name" => "bthserv",         "startup_type" => "manual"},
                       {"name" => "WMPNetworkSvc",   "startup_type" => "manual"}]
 
-default['execute'] = [{"command" => "schtasks.exe /Run /TN '\\Microsoft\\Windows\\Servicing\\StartComponentCleanup'",
+default['execute'] = [{"command" => "schtasks /Run /TN '\\Microsoft\\Windows\\Servicing\\StartComponentCleanup'",
                        "description" => "Schedule Windows dir cleanup"}]
