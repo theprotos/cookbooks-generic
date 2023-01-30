@@ -17,5 +17,5 @@ default['services'] = [{"name" => "lfsvc",           "startup_type" => "manual"}
                       {"name" => "bthserv",         "startup_type" => "manual"},
                       {"name" => "WMPNetworkSvc",   "startup_type" => "manual"}]
 
-default['execute'] = [{"command" => "schtasks /Run /TN \Microsoft\Windows\Servicing\StartComponentCleanup",
-                       "description" => "Schedule Windows dir cleanup"}]
+default['execute'] = [{"command" => "powershell -Command \"schtasks /Run /TN \\Microsoft\\Windows\\Servicing\\StartComponentCleanup",
+                       "description" => "Schedule Windows dir cleanup\""}]
