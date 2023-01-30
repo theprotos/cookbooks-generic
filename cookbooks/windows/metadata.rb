@@ -6,5 +6,5 @@ description 'Configure windows during packer builds'
 
 supports 'windows'
 
-version '0.1.1'
+version '0.1.2'
 chef_version '>= 15.0'
