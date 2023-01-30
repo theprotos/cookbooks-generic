@@ -30,16 +30,17 @@ SHORT DESCRIPTION
         } else {
             '
             Windows laptop:
-                win-laptop-dev.json         : install dev packages, MS Office, power usage setting
+                win-laptop-dev.json         : install dev packages, MS Office 2021, power usage setting
                 win-laptop-dev-kms.json     : the same as above plus activate Windows and MS Office
                 win-laptop-full.json        : install packages, MS Office, power usage setting
                 win-laptop-full-kms.json    : the same as above plus activate Windows and MS Office
                 win-laptop-minimal.json     : power usage setting
                 win-laptop-minimal-kms.json : the same as above plus activate Windows and MS Office
             Windows:
-                win-cleanup.json            : description
-                win-office.json             : install MS Office 2019
-                win-packages.json           : description
+                win-cleanup.json            : Standard and WinSxS cleanup
+                win-office.json             : install MS Office 2021
+                win-packages.json           : standard packages
+                win-packages-dev.json       : additional packages for software development
                 win-server-minimal.json     : description
                 win-sshd.json               : description
                 win-kms.json                : install KMS and active Windows and MS Office

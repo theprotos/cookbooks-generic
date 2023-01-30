@@ -3,7 +3,7 @@ services = node['services']
 if !services.nil?
   services.each do |service|
     if service.nil? || service.empty?
-      Chef::Log.warn("#{node['debug_logger']}: no services specified")
+      Chef::Log.warn('No services specified')
       next
     end
 

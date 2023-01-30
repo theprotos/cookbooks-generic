@@ -31,9 +31,6 @@
         "name": "curl"
       },
       {
-        "name": "openjdk"
-      },
-      {
         "name": "jdk8"
       },
       {
@@ -74,9 +71,6 @@
       },
       {
         "name": "ilspy"
-      },
-      {
-        "name": "cmder"
       },
       {
         "name": "nmap"
@@ -194,9 +188,6 @@
       },
       {
         "name": "googledrive"
-      },
-      {
-        "name": "choco-cleaner"
       }
     ],
     "execute": [

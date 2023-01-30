@@ -1,0 +1,35 @@
+{
+  "name": "win-wsl-nohyperv",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-wsl",
+    "execute": [
+      {
+        "command": "powershell -Command \"if ((Get-ComputerInfo | Select-Object -expand OsName) -match 11) {wsl --install}\"",
+        "description": "Windows 11: Install WSL2"
+      },
+      {
+        "command": "powershell -Command \"Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All\"",
+        "description": "Windows 11: Disable Hyper-V"
+      },
+      {
+        "command": "powershell -Command \"bcdedit /set hypervisorlaunchtype off\"",
+        "description": "Windows 11: Disable Hyper-V"
+      },
+      {
+        "command": "powershell -Command \"if ((Get-ComputerInfo | Select-Object -expand OsName) -match 11) {wsl --set-default-version 2}\"",
+        "description": "Windows 11: Set default WSL2"
+      },
+      {
+        "command": "powershell -Command \"if ((Get-ComputerInfo | Select-Object -expand OsName) -match 11) {wsl --install -d Ubuntu}\"",
+        "description": "Windows 11: WSL2 install ubuntu"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::exec]"
+  ]
+}

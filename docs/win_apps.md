@@ -3,6 +3,8 @@
 ## Vagrant
 
 ```
+# Add vagrantcloud.com to antivirus exceptions
+
 # to download boxes
 vagrant login
 
