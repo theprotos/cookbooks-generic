@@ -178,7 +178,7 @@
         "name": "teamviewer"
       },
       {
-        "name": "keepass.install"
+        "name": "keepass"
       },
       {
         "name": "uget"
@@ -192,7 +192,7 @@
     ],
     "execute": [
       {
-        "command": "pip install --user pipenv",
+        "command": "powershell -Command \"if (Get-Command pip1 -errorAction SilentlyContinue){pip install --user pipenv}\"",
         "description": "Python virtual env"
       }
     ]
