@@ -18,6 +18,7 @@ if !registry.nil?
       action reg_key['action'] || :create
       recursive true
       ignore_failure true
+      #only_if reg_key['condition']
     end
   end
 else

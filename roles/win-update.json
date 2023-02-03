@@ -40,6 +40,13 @@
         "name": "EnableFeaturedSoftware",
         "type": "dword",
         "data": "1"
+      },
+      {
+        "description": "Disable Updates delivery optimization",
+        "path": "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\DoSvc",
+        "name": "Start",
+        "type": "dword",
+        "data": "4"
       }
     ]
   },
