@@ -28,22 +28,10 @@
         "name": "crystaldiskmark"
       },
       {
-        "name": "windirstat"
-      },
-      {
         "name": "7zip"
       },
       {
-        "name": "cpu-z"
-      },
-      {
         "name": "totalcommander"
-      },
-      {
-        "name": "procexp"
-      },
-      {
-        "name": "hwinfo.install"
       },
       {
         "name": "obs-studio"
@@ -68,15 +56,11 @@
       },
       {
         "name": "chocolatey-core.extension"
-      },
-      {
-        "name": "chocolateygui"
       }
     ]
   },
   "override_attributes": {},
   "run_list": [
-    "recipe[windows::packages]",
-    "recipe[windows::exec]"
+    "recipe[windows::packages]"
   ]
 }

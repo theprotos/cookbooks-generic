@@ -29,10 +29,10 @@ EXAMPLES
 }
 
 apply() {
-local repo="https://github.com/theprotos/cookbooks-generic.git"
-local runlist=${1:-linux-vagrant.json}
-local branch=${2:-master}
-local tmp_dir=$(mktemp -d -t $(date +%Y-%m-%d-%H-%M-%S)-XXXXXXXXXX)
+repo="https://github.com/theprotos/cookbooks-generic.git"
+runlist=${1:-linux-vagrant.json}
+branch=${2:-master}
+tmp_dir=$(mktemp -d -t "$(date +%Y-%m-%d-%H-%M-%S)"-XXXXXXXXXX)
 
 chef_client_rhel8="https://packages.chef.io/files/stable/chef/15.5.9/el/8/chef-15.5.9-1.el7.x86_64.rpm"
 chef_client_rhel7="https://packages.chef.io/files/stable/chef/15.5.9/el/7/chef-15.5.9-1.el7.x86_64.rpm"
@@ -50,8 +50,8 @@ printf "\n$(date +%T) ==========[ Install chef-client ]==========\n"
 if ($( chef-client -v > /dev/null 2>&1 )); then
     printf "Already installed..\n"
 else
-    curl -sL $chef_client_rhel7 -J -L --output $tmp_dir/chef-client.rpm
-    yum localinstall -y -q -e 0 $tmp_dir/chef-client.rpm && printf "Done..\n"
+    curl -sL $chef_client_rhel7 -J -L --output "$tmp_dir"/chef-client.rpm
+    yum localinstall -y -q -e 0 "$tmp_dir"/chef-client.rpm && printf "Done..\n"
     chef-client --chef-license=accept > /dev/null 2>&1
 fi
 

@@ -1,0 +1,90 @@
+{
+  "name": "win-packages-system",
+  "chef_type": "role",
+  "json_class": "Chef::Role",
+  "description": "",
+  "default_attributes": {
+    "debug_logger": "win-packages",
+    "package": [
+      {
+        "name": "sysinternals"
+      },
+      {
+        "name": "winbox"
+      },
+      {
+        "name": "insted"
+      },
+      {
+        "name": "wireshark"
+      },
+      {
+        "name": "fiddler"
+      },
+      {
+        "name": "ilspy"
+      },
+      {
+        "name": "nmap"
+      },
+      {
+        "name": "unetbootin"
+      },
+      {
+        "name": "veracrypt"
+      },
+      {
+        "name": "rufus"
+      },
+      {
+        "name": "treesizefree"
+      },
+      {
+        "name": "bleachbit"
+      },
+      {
+        "name": "7zip.install"
+      },
+      {
+        "name": "cpu-z"
+      },
+      {
+        "name": "procexp"
+      },
+      {
+        "name": "hwinfo.install"
+      },
+      {
+        "name": "irfanviewplugins"
+      },
+      {
+        "name": "ghostscript"
+      },
+      {
+        "name": "teamviewer"
+      },
+      {
+        "name": "keepass"
+      },
+      {
+        "name": "uget"
+      },
+      {
+        "name": "qbittorrent"
+      },
+      {
+        "name": "googledrive"
+      }
+    ],
+    "execute": [
+      {
+        "command": "powershell -Command \"if (Get-Command pip -errorAction SilentlyContinue){pip install --user pipenv}\"",
+        "description": "Python virtual env"
+      }
+    ]
+  },
+  "override_attributes": {},
+  "run_list": [
+    "recipe[windows::packages]"
+  ]
+}

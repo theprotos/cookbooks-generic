@@ -1,5 +1,5 @@
 {
-  "name": "win-wsl-nohyperv",
+  "name": "win-wsl",
   "chef_type": "role",
   "json_class": "Chef::Role",
   "description": "",
@@ -11,12 +11,12 @@
         "description": "Windows 11: Install WSL2 feature"
       },
       {
-        "command": "powershell -Command \"Disable-WindowsOptionalFeature -NoRestart -Online -FeatureName Microsoft-Hyper-V-All\"",
-        "description": "Windows 11: Disable Hyper-V feature. Probably need reboot"
+        "command": "powershell -Command \"if ((Get-ComputerInfo | Select-Object -expand OsName) -match 11) {wsl --update}\"",
+        "description": "Windows 11: Update WSL2 feature"
       },
       {
-        "command": "powershell -Command \"Disable-WindowsOptionalFeature -NoRestart -Online -FeatureName VirtualMachinePlatform\"",
-        "description": "Windows 11: Disable VirtualMachinePlatform feature. Probably need reboot"
+        "command": "powershell -Command \"Enable-WindowsOptionalFeature -NoRestart -Online -FeatureName Microsoft-Hyper-V-All\"",
+        "description": "Windows 11: Disable Hyper-V feature. Probably need reboot"
       },
       {
         "command": "powershell -Command \"bcdedit /set hypervisorlaunchtype off\"",

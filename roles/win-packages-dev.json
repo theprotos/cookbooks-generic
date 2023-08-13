@@ -48,42 +48,14 @@
       {
         "name": "nvm"
       },
-      {
-        "name": "sysinternals"
-      },
+
       {
         "name": "jetbrainstoolbox"
       },
       {
-        "name": "winbox"
-      },
-      {
         "name": "vscode"
       },
-      {
-        "name": "insted"
-      },
-      {
-        "name": "wireshark"
-      },
-      {
-        "name": "fiddler"
-      },
-      {
-        "name": "ilspy"
-      },
-      {
-        "name": "nmap"
-      },
-      {
-        "name": "unetbootin"
-      },
-      {
-        "name": "veracrypt"
-      },
-      {
-        "name": "rufus"
-      },
+
       {
         "name": "vagrant"
       },
@@ -135,15 +107,11 @@
       {
         "name": "docker-desktop"
       },
-      {
-        "name": "bleachbit"
-      },
+
       {
         "name": "crystaldiskmark"
       },
-      {
-        "name": "windirstat"
-      },
+
       {
         "name": "7zip.install"
       },
@@ -188,11 +156,12 @@
       },
       {
         "name": "googledrive"
-      }
+      },
+      microsoft-windows-terminal
     ],
     "execute": [
       {
-        "command": "powershell -Command \"if (Get-Command pip1 -errorAction SilentlyContinue){pip install --user pipenv}\"",
+        "command": "powershell -Command \"if (Get-Command pip -errorAction SilentlyContinue){pip install --user pipenv}\"",
         "description": "Python virtual env"
       }
     ]
